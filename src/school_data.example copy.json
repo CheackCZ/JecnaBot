@@ -1,0 +1,26 @@
+{
+    "topics": {
+        "Topic 1 Name": {
+            "keywords": ["keyword1", "keyword2", "keyword3"],
+            "questions": [
+                "Question 1 related to Topic 1?",
+                "Question 2 related to Topic 1?"
+            ],
+            "answers": {
+                "Question 1 related to Topic 1?": "Answer to Question 1.",
+                "Question 2 related to Topic 1?": "Answer to Question 2."
+            }
+        },
+        "Topic 2 Name": {
+            "keywords": ["keyword4", "keyword5"],
+            "questions": [
+                "Question 1 related to Topic 2?",
+                "Question 2 related to Topic 2?"
+            ],
+            "answers": {
+                "Question 1 related to Topic 2?": "Answer to Question 1.",
+                "Question 2 related to Topic 2?": "Answer to Question 2."
+            }
+        }
+    }
+}

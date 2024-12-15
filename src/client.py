@@ -1,42 +1,51 @@
 import asyncio
 import websockets
+import json
 
 class Client:
-    def __init__(self, uri="ws://localhost:7777"):
-        self.uri = uri
+    """
+    WebSocket klient pro komunikaci se serverem.
+    """
+    
+    def __init__(self, config_file):
+        """
+        Inicializace instance Client.
+        
+        :param config_file (str): Cesta k JSON souboru obsahujícímu konfiguraci.        
+        """
+        with open(config_file, 'r', encoding='utf-8') as f:
+            self.config = json.load(f)
+        self.uri = f"ws://{self.config['host']}:{self.config['port']}"
 
     async def connect(self):
+        """
+        Navázání spojení se serverem a výměna zpráv.
+        """
         try:
             async with websockets.connect(self.uri) as websocket:
-                await self.handle_chat(websocket)
+                print(await websocket.recv())  
+                
+                while True:
+                    user_input = input(" > Vy: ")
+                    await websocket.send(user_input)
+
+                    if user_input.lower() == "exit":
+                        print("\n -> Odpojil jste se.")
+                        break
+
+                    response = await websocket.recv()
+                    print(f" └ Bot: {response}\n")
+                    
         except Exception as e:
-            print(f"Error: {e}")
-
-    async def handle_chat(self, websocket):
-        # Receive and display the welcome message from the server
-        welcome_message = await websocket.recv()
-        print(f"\n{welcome_message}")
-
-        while True:
-            # Ask the client to input a message or exit
-            user_input = input(" > You: ")
-
-            # Send the user's message to the server
-            await websocket.send(user_input)
-
-            # Exit the loop if the user types 'exit'
-            if user_input.lower() == "exit":
-                print("\n -> You have disconnected.")
-                break
-
-            # Receive and display the server's response
-            server_response = await websocket.recv()
-            print(f" └─ Bot: {server_response}\n")
+            print(f"Chyba: {e}")
 
 if __name__ == "__main__":
-    client = Client()
+    """
+    Spuštění klienta.
+    """
+    client = Client(config_file="config.json")
     
     try:
         asyncio.run(client.connect())
     except KeyboardInterrupt:
-        print("\n -> You have disconnected manually!")
+        print("\n -> Odpojil jste se ručně!")
