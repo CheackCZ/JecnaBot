@@ -10,15 +10,14 @@ class Server:
     WebSocket server pro komunikaci s uživateli.
     """
 
-    def __init__(self, config_file, data_file):
+    def __init__(self, config_file):
         """
         Inicializace instance Server.
 
         :param config_file (str): Cesta k souboru obsahující konfiguraci serveru.
-        :param data_file (str): Cesta k souboru dat s odpověďmi.
         """
         self.config = self._load_config(config_file)
-        self.logic = Response_Logic(data_file)
+        self.logic = Response_Logic(config_file)
 
     def _load_config(self, config_file):
         """
@@ -59,7 +58,7 @@ if __name__ == "__main__":
            "\n*        JečnáBot Server!        *" +
            "\n**********************************\n")
     
-    server = Server(config_file="config.json", data_file="school_data.json")
+    server = Server(config_file="config.json")
     
     try:
         asyncio.run(server.run())

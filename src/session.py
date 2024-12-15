@@ -31,24 +31,12 @@ class Session:
                 client_message = await self.websocket.recv()
                 print(f"    - Uživatel ({self.client_id}): {client_message}")
 
-                if client_message.lower() == 'help':
-                    topics = self.logic.get_topics()
-                    help_message = "Témata, která mohu pomoci zodpovědět:\n"
-                    
-                    for topic in topics.items():
-                        help_message += f"   - {topic.capitalize()},\n"
-                    
-                    await self.websocket.send(help_message)
+                if client_message.lower() == "exit":
+                    await self.websocket.send(" -> Odpojuji se. Nashledanou!")
+                    break
 
-                else:
-                    keywords = client_message.split()
-                    questions = self.logic.get_questions(keywords)
-                                      
-                    if questions and questions[0] != "O této oblasti nemám dostatek informací.":
-                        await self.websocket.send(f"Mohu odpovědět na:\n   - " + "\n   - ".join(questions))
-                    else:
-                        answer = self.logic.get_answer(client_message)
-                        await self.websocket.send(answer)
+                answer = self.logic.get_answer(client_message)
+                await self.websocket.send(f"{answer}\n")
 
             except websockets.ConnectionClosed:
                 print(f" > Uživatel ({self.client_id}) se odpojil.")
