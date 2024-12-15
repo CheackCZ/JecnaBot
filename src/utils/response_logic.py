@@ -31,15 +31,19 @@ class Response_Logic:
         prompt = (
             "You are an assistant that only provides accurate and factual information about SPŠE Ječná, "
             "a technical high school located in Prague. Avoid speculating or providing irrelevant information.\n"
+            " Always respond in the same language as the user's input. "
+            "If the user asks in Czech, respond only in Czech."
+            "If the user asks in English, respond only in English."
+            "Do not mix languages."
             f"User question: {question}"
         )
 
         try:
             response = openai.chat.completions.create (
-                model="gpt-4o-mini",
+                model="ft:gpt-4o-mini-2024-07-18:personal:jecnabot:AepbSNpA",
                 messages=[
-                    {"role": "system", "content": "You are a helpful assistant providing information about SPŠE Ječná."},
-                    {"role": "user", "content": prompt}
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": question}
                 ],
                 max_tokens=500
             )

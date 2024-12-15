@@ -45,7 +45,7 @@ class Server:
         """
         print(" -> Spouštím WebSocket server...")
         
-        async with websockets.serve(self.handle_client, self.config["host"], self.config["port"]):
+        async with websockets.serve(self.handle_client, self.config["host"], self.config["port"], ping_interval=60, ping_timeout=30):
             print(f" -> Server spuštěn a naslouchá na ws://{self.config['host']}:{self.config['port']}")
             await asyncio.Future()  
 

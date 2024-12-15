@@ -26,16 +26,21 @@ class Client:
                 print(await websocket.recv())  
                 
                 while True:
-                    user_input = input(" > Vy: ")
-                    await websocket.send(user_input)
+                    try:
+                        user_input = input(" > Vy: ")
+                        await websocket.send(user_input)
 
-                    if user_input.lower() == "exit":
-                        print("\n -> Odpojil jste se.")
+                        if user_input.lower() == "exit":
+                            print("\n -> Odpojil jste se.")
+                            break
+
+                        response = await websocket.recv()
+                        print(f" └ Bot: {response}\n")
+                        
+                    except websockets.ConnectionClosed:
+                        print(" -> Byl jste odhlášen.")
                         break
-
-                    response = await websocket.recv()
-                    print(f" └ Bot: {response}\n")
-                    
+                        
         except Exception as e:
             print(f"Chyba: {e}")
 
