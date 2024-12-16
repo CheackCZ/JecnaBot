@@ -1,6 +1,6 @@
 import websockets
 
-from utils.response_logic import Response_Logic
+from response_logic import Response_Logic
 
 class Session:
     """
@@ -24,20 +24,23 @@ class Session:
         """
         print(f"\n > Uživatel ({self.client_id}) se připojil.")
         
-        await self.websocket.send(f"""\n**********************************\n*       Vítejte, JečnáBot!       *\n**********************************\n\n >> Co pro Vás mohu udělat? \n └─ Napiště 'help' pro seznam témat, 'exit' pro ukončení nebo otázku na kterou chcete odpovědět :)\n""")
+        await self.websocket.send(f"""\n**********************************\n*       Vítejte, JečnáBot!       *\n**********************************\n\n >> Co pro Vás mohu udělat? \n └─ Napiště 'exit' pro ukončení, nebo se zeptejte na otázku, kterou chcete zodpovědět :)\n""")
 
         while True:
             try:
                 client_message = await self.websocket.recv()
-                print(f"    - Uživatel ({self.client_id}): {client_message}")
+                print(f"\n    - Uživatel ({self.client_id}): {client_message}")
 
                 if client_message.lower() == "exit":
                     await self.websocket.send(" -> Odpojuji se. Nashledanou!")
+                    print(f"\n > Uživatel ({self.client_id}) se odpojil.")
                     break
 
                 answer = self.logic.get_answer(client_message)
                 await self.websocket.send(f"{answer}\n")
 
+                print(f"    └ Odpověď bota uživateli ({self.client_id}): {answer}")
+
             except websockets.ConnectionClosed:
-                print(f" > Uživatel ({self.client_id}) se odpojil.")
+                print(f"\n > Uživatel ({self.client_id}) se odpojil.")
                 break

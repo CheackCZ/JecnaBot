@@ -49,4 +49,5 @@ class Response_Logic:
             )
             return response.choices[0].message.content
         except Exception as e:
-            return f"Error querying OpenAI API: {e}"
+            print(f"Chyba při volání OpenAI API: {e}")  
+            return "Omlouvám se, došlo k chybě při získávání odpovědi."

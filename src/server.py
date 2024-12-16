@@ -3,7 +3,7 @@ import websockets
 import json
 
 from session import Session
-from utils.response_logic import Response_Logic
+from response_logic import Response_Logic
 
 class Server:
     """
@@ -27,8 +27,26 @@ class Server:
         
         :return (dict): Konfigurace serveru. 
         """
-        with open(config_file, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        try:
+            with open(config_file, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+            
+            # Ověření povinných klíčů
+            required_keys = ["host", "port", "openai_api_key"]
+            for key in required_keys:
+                if key not in config:
+                    raise ValueError(f"Chybí povinný klíč '{key}' v konfiguračním souboru.")
+            
+            # Ověření portu
+            if not isinstance(config["port"], int) or not (1 <= config["port"] <= 65535):
+                raise ValueError("Port v konfiguraci musí být celé číslo v rozsahu 1–65535.")
+            
+            return config
+
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Konfigurační soubor '{config_file}' nebyl nalezen.")
+        except json.JSONDecodeError:
+            raise ValueError(f"Konfigurační soubor '{config_file}' není validní JSON.")
 
     async def handle_client(self, websocket):
         """
@@ -63,4 +81,4 @@ if __name__ == "__main__":
     try:
         asyncio.run(server.run())
     except KeyboardInterrupt:
-        print("\n -> Server byl ručně zastaven!")
+        print("\n -> Server byl ukončen uživatelem!")
