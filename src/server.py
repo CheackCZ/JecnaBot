@@ -31,13 +31,11 @@ class Server:
             with open(config_file, 'r', encoding='utf-8') as f:
                 config = json.load(f)
             
-            # Ověření povinných klíčů
             required_keys = ["host", "port", "openai_api_key"]
             for key in required_keys:
                 if key not in config:
                     raise ValueError(f"Chybí povinný klíč '{key}' v konfiguračním souboru.")
             
-            # Ověření portu
             if not isinstance(config["port"], int) or not (1 <= config["port"] <= 65535):
                 raise ValueError("Port v konfiguraci musí být celé číslo v rozsahu 1–65535.")
             

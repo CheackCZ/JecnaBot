@@ -1,0 +1,4 @@
+12/16/24-16-2024 19:01:57 | Question: Kde se škola nachází? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.
+12/16/24-16-2024 19:02:04 | Question: jaká je její dostupnost MHD? -> Answer: SPŠE Ječná má výbornou dostupnost městskou hromadnou dopravou, díky blízkosti stanic metra a tramvají.
+12/16/24-16-2024 19:02:18 | Question: jaký je název zastávky tramvaje? -> Answer: Zastávka tramvaje se jmenuje "Ječná."
+12/16/24-16-2024 19:02:25 | Question: ëxit -> Answer: It seems you might be trying to exit the conversation. If you have any more questions about SPŠE Ječná, feel free to ask! Otherwise, have a great day!

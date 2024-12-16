@@ -1,5 +1,6 @@
 import websockets
 
+from log_manager import Log_Manager
 from response_logic import Response_Logic
 
 class Session:
@@ -17,6 +18,7 @@ class Session:
         self.websocket = websocket
         self.client_id = id(websocket)
         self.logic = logic
+        self.logger = Log_Manager()
 
     async def handle_session(self):
         """
@@ -38,6 +40,8 @@ class Session:
 
                 answer = self.logic.get_answer(client_message)
                 await self.websocket.send(f"{answer}\n")
+                
+                self.logger.log_record(question=client_message, answer=answer)
 
                 print(f"    └ Odpověď bota uživateli ({self.client_id}): {answer}")
 
