@@ -4,19 +4,19 @@ import json
 
 class Client:
     """
-    WebSocket klient pro komunikaci se serverem.
+    WebSocket client for communication with server.
     """
     
     def __init__(self, config_file):
         """
-        Inicializace instance Client.
+        Initializes the Client instance.
         
-        :param config_file (str): Cesta k JSON souboru obsahujícímu konfiguraci.        
+        :param config_file (str): Path to the JSON configuration file containing server settings
         """
         with open(config_file, 'r', encoding='utf-8') as f:
             self.config = json.load(f)
 
-        # Validace portu
+        # Port validation
         if not isinstance(self.config["port"], int) or not (1 <= self.config["port"] <= 65535):
             raise ValueError("Port v konfiguraci musí být celé číslo v rozsahu 1–65535.")
 
@@ -24,7 +24,7 @@ class Client:
     
     async def connect(self):
         """
-        Navázání spojení se serverem a výměna zpráv.
+        Connection with the server and message exchange.
         """
         try:
             async with websockets.connect(self.uri, open_timeout=10) as websocket:
@@ -51,9 +51,6 @@ class Client:
             print(f"Chyba: {e}")
 
 if __name__ == "__main__":
-    """
-    Spuštění klienta.
-    """
     client = Client(config_file="../config.json")
     
     try:
