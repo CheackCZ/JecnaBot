@@ -12,19 +12,8 @@ class Response_Logic:
         
         :param config_file (str): Path to the JSON configuration file containing server settings
         """
-        self.config = self._load_config(config_file)
+        self.config = config_file
         openai.api_key = self.config["openai_api_key"]
-
-    def _load_config(self, config_file):
-        """
-        Loads configuration settings from a JSON file.
-         
-        :param config_file (str): Path to the JSON configuration file containing server settings
-        
-        :return: Loaded configuration.
-        """
-        with open(config_file, 'r', encoding='utf-8') as f:
-            return json.load(f)
 
     def get_answer(self, question):
         """

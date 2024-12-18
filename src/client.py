@@ -2,6 +2,8 @@ import asyncio
 import websockets
 import json
 
+import re
+
 class Client:
     """
     WebSocket client for communication with server.
@@ -13,6 +15,12 @@ class Client:
         
         :param config_file (str): Path to the JSON configuration file containing server settings
         """
+        if type(config_file) != str:
+            raise TypeError("Konfigurační soubor musí být dosazen a vložen jako String!")
+
+        if not re.search(r"^.*\.json$", config_file):
+            raise Exception("Konfigurační soubor musí být .json!")
+        
         with open(config_file, 'r', encoding='utf-8') as f:
             self.config = json.load(f)
 

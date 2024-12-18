@@ -1,0 +1,18 @@
+2024-12-17 16:32:41 | Question: Do kdy se mohou studenti přihlašovat? -> Answer: Přihlašovací termíny pro prvního kola přijímacího řízení jsou obvykle do poloviny března. Aktuální informace naleznete na webu školy.
+2024-12-17 16:32:45 | Question: V kolik hodin začíná škola? -> Answer: Vyučování obvykle začíná mezi 7:00 a 8:00, v závislosti na rozvrhu.
+2024-12-17 16:32:49 | Question: Jaká je její dostupnost MHD? -> Answer: Škola má výbornou dostupnost tramvajemi, autobusy a metrem (linky B a C).
+2024-12-17 16:32:58 | Question: jaká je její dostupnost MHD? -> Answer: Škola má výbornou dostupnost MHD, nachází se blízko stanic metra Karlovo náměstí a I.P. Pavlova (linka C), a také poblíž stanic náměstí I.P. Pavlova a Můstek (linky A a B).
+2024-12-17 16:36:40 | Question: Kdy se otevírá škola? -> Answer: Škola se obvykle otevírá v 7:00.
+2024-12-17 16:36:49 | Question: kdy se otevírá škola? -> Answer: Škola se otevírá v 7:00, přičemž první hodina začíná v 7:30.
+2024-12-17 16:37:10 | Question: jaká je její dostupnost mhd? (2x) -> Answer: Škola je výborně dostupná tramvajemi (např. linky 4, 10, 16) a metrem (linka C - I. P. Pavlova).
+2024-12-17 16:39:46 | Question: Kde se dá koupit jídlo? -> Answer: Jídlo se dá zakoupit ve školní jídelně, která nabízí obědy, nebo v blízkých bufetech a bistrech.
+2024-12-17 16:39:48 | Question: Kde se dá koupit jídlo? -> Answer: V budově školy se nachází jídelna, kde se prodává jídlo pro studenty.
+2024-12-17 16:40:56 | Question: Kolik je možných spojů? -> Answer: Škola je dobře dostupná městskou hromadnou dopravou, například tramvajemi číslo 4, 10, 16, 22 nebo metrem linky C (stanice I. P. Pavlova). 
+2024-12-17 16:49:33 | Question: Kolik je možných spojů? -> Answer: Škola je dobře dostupná městskou hromadnou dopravou, včetně tramvají a metra (linky A a C). 
+2024-12-17 16:49:35 | Question: Kolik je možných spojů? -> Answer: Škola je dobře dopravně dostupná tramvajemi (linky 22, 11, 9) a metrem (linky C a A).
+2024-12-17 16:49:37 | Question: Kolik je možných spojů? -> Answer: Škola má výbornou dostupnost městskou hromadnou dopravou, s mnoha autobusy, tramvajemi a metrem.
+2024-12-18 16:27:59 | Question: exit -> Answer: If you need assistance or have questions in the future, feel free to ask. Have a great day!
+2024-12-18 16:28:13 | Question: Where is the school located? (address) -> Answer: The school is located at Ječná 30, Prague 2, Czech Republic.
+2024-12-18 16:28:27 | Question: how is it with the public transportation over in it? -> Answer: SPŠE Ječná has excellent access to public transportation, including metro, trams, and buses, making it convenient for students commuting from various parts of Prague.
+2024-12-18 16:28:40 | Question: what stations of subway? -> Answer: The nearest subway stations are I.P. Pavlova (line C) and Karlovo Náměstí (line B).
+2024-12-18 16:28:46 | Question: okay, thanks! -> Answer: You're welcome! If you have any more questions about SPŠE Ječná, feel free to ask!

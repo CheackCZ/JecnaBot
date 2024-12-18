@@ -1,6 +1,8 @@
 import asyncio
 import websockets
+
 import json
+import re
 
 from session import Session
 from response_logic import Response_Logic
@@ -12,12 +14,18 @@ class Server:
 
     def __init__(self, config_file):
         """
-        Initializes the Server instance.
+        Initializes the Server instance (after successfull validation).
 
         :param config_file (str): Path to the JSON configuration file containing server settings.
         """
+        if type(config_file) != str:
+            raise TypeError("Konfigurační soubor musí být dosazen a vložen jako String!")
+
+        if not re.search(r"^.*\.json$", config_file):
+            raise Exception("Konfigurační soubor musí být .json!")
+        
         self.config = self._load_config(config_file)
-        self.logic = Response_Logic(config_file)
+        self.logic = Response_Logic(self.config)
         
     def _load_config(self, config_file):
         """
@@ -31,13 +39,11 @@ class Server:
             with open(config_file, 'r', encoding='utf-8') as f:
                 config = json.load(f)
             
-            # Correct keys in configuration file validation
             required_keys = ["host", "port", "openai_api_key"]
             for key in required_keys:
                 if key not in config:
                     raise ValueError(f"Chybí povinný klíč '{key}' v konfiguračním souboru.")
             
-            # Port validation
             if not isinstance(config["port"], int) or not (1 <= config["port"] <= 65535):
                 raise ValueError("Port v konfiguraci musí být celé číslo v rozsahu 1–65535.")
             
@@ -73,7 +79,7 @@ if __name__ == "__main__":
            "\n*        JečnáBot Server!        *" +
            "\n**********************************\n")
     
-    server = Server(config_file="config.json")
+    server = Server(config_file="../config.json")
 
     try:
         asyncio.run(server.run())

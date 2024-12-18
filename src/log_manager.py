@@ -10,7 +10,7 @@ class Log_Manager:
     A class to manage logging of questions and answers, analyze log files, and track the most frequently asked questions.
     """
     
-    def __init__(self, log_file="log.txt", stats_file="stats.txt"):
+    def __init__(self, log_file="../logs/log.txt", stats_file="../logs/stats.txt"):
         """
         Initializes the Log_Manager instance.
         
