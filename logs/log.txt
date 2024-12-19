@@ -16,3 +16,14 @@
 2024-12-18 16:28:27 | Question: how is it with the public transportation over in it? -> Answer: SPŠE Ječná has excellent access to public transportation, including metro, trams, and buses, making it convenient for students commuting from various parts of Prague.
 2024-12-18 16:28:40 | Question: what stations of subway? -> Answer: The nearest subway stations are I.P. Pavlova (line C) and Karlovo Náměstí (line B).
 2024-12-18 16:28:46 | Question: okay, thanks! -> Answer: You're welcome! If you have any more questions about SPŠE Ječná, feel free to ask!
+2024-12-18 22:27:26 | Question: jaká je její dostupnost mhd? -> Answer: Škola má výbornou dostupnost MHD, s tramvajemi, autobusy a metrem (linka C) v blízkosti.
+2024-12-18 22:27:32 | Question: 5 -> Answer: Please provide more context or a specific question about SPŠE Ječná, and I'll be happy to help!
+2024-12-18 22:27:47 | Question: Pořádá škola kulturní akce? -> Answer: Ano, škola organizuje kulturní akce, jako jsou divadelní představení, koncerty a výstavy.
+2024-12-18 22:28:03 | Question: Má škola archiv úspěchlů studentů? -> Answer: Ano, škola vede přehled o úspěších studentů v soutěžích a odborných projektech.
+2024-12-18 22:28:08 | Question: na jak dlouho? -> Answer: Studium trvá 4 roky a je zakončeno maturitní zkouškou.
+2024-12-18 22:28:15 | Question: Jak dlouho uchovává archiv? -> Answer: Archiv uchovává dokumenty po dobu stanovenou legislativou, obvykle několik let.
+2024-12-18 22:28:24 | Question: Kolik let cca? -> Answer: Škola byla založena v roce 1934, což znamená, že má přes 80 let tradice.
+2024-12-19 09:36:42 | Question: Kolik je hodin? -> Answer: Nemohu poskytnout aktuální čas. Doporučuji zkontrolovat hodiny na škole nebo si je zjistit jiným způsobem.
+2024-12-19 09:36:51 | Question: děkuji! -> Answer: Není zač! Pokud máte další otázky, neváhejte se zeptat.
+2024-12-19 10:46:17 | Question: Kolik má škola budov? -> Answer: Škola má dvě hlavní budovy.
+2024-12-19 10:46:23 | Question: kde se nachází? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.

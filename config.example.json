@@ -1,5 +1,8 @@
 {
-    "host": " ",
-    "port": " ",
-    "openai_api_key": " "
+    "host": "",
+    "port": 0,
+    "ai_model" : "",
+    "openai_api_key": "",    
+    "log_file" : "",
+    "stats_file" : ""
 }

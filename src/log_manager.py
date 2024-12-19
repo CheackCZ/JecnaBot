@@ -22,6 +22,7 @@ class Log_Manager:
         self.lock = threading.Lock()
         self.most_asked_questions = self.load_stats()
 
+
     def log_record(self, question, answer):
         """
         Logs a user question and its corresponding answer to the log file.
@@ -34,6 +35,7 @@ class Log_Manager:
 
         with open(self.log_file, "a", encoding="UTF-8") as file:
             file.write(log_entry)
+
 
     def analyze_logs(self):
         """
@@ -59,6 +61,7 @@ class Log_Manager:
         except Exception as e:
             print(f"Chyba při analýze logů: {e}")
 
+
     def load_stats(self):
         """
         Loads the top questions from the stats file into memory.
@@ -71,11 +74,13 @@ class Log_Manager:
         except Exception as e:
             return [f"Chyba při načítání statistik: {e}"]
 
+
     async def analyze_logs_async(self):
         """
         Runs the log analysis asynchronously in a separate thread.
         """
         await asyncio.to_thread(self.analyze_logs)
+
 
     def get_questions(self):
         """

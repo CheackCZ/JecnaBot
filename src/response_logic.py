@@ -1,19 +1,20 @@
 import openai
 import json
 
-class Response_Logic:
+class ResponseLogic:
     """
     Class that processes answers dynamically using the OpenAI API.
     """
 
     def __init__(self, config_file):
         """
-        Initializes the Response_Logic instance.
+        Initializes the ResponseLogic instance.
         
         :param config_file (str): Path to the JSON configuration file containing server settings
         """
         self.config = config_file
         openai.api_key = self.config["openai_api_key"]
+
 
     def get_answer(self, question):
         """
@@ -35,7 +36,7 @@ class Response_Logic:
 
         try:
             response = openai.chat.completions.create (
-                model="ft:gpt-4o-mini-2024-07-18:personal:jecnabot:AepbSNpA",
+                model=self.config["ai_model"],
                 messages=[
                     {"role": "system", "content": prompt},
                     {"role": "user", "content": question}
