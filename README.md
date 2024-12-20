@@ -88,14 +88,14 @@ Projekt zahrnuje asynchronní serverovou logiku, správu jednotlivých relací a
 ## Spuštění projektu
 
 ### Spuštění serveru
-Server lze spustit pomocí příkazu:
+Server lze spustit pomocí příkazu (v složce `/src/`):
 ```bash
 python server.py
 ```
 Server bude naslouchat na adrese a portu specifikovaném v `config.json`.
 
 ### Spuštění klienta
-Klient připojující se k serveru se spustí takto:
+Klient připojující se k serveru se spustí takto (ve složce `/src/`):
 ```bash
 python client.py
 ```
@@ -136,7 +136,8 @@ CTRL + C
 │   └── test_session.py         # Testy jednotlivých relací a jejich funkcí
 │
 ├── README.md                   # Popis projektu
-└── config.json                 # Konfigurační soubor (např. port, AI detaily)
+├── config.example.json         # Ukázka jak má vypadat konfigurační soubor (pro github)
+├── config.json                 # Konfigurační soubor (např. port, AI detaily)
 └── requirements.txt            # Závslosti
 ```
 
@@ -174,4 +175,14 @@ __Reporting__
 
 <br>
 
-__Autor__ - Ondřej Faltin.
+__Autor__ 
+- Ondřej Faltin,
+- student v Střední průmyslová škola elektrotechnická, Praha 2, Ječná 30, třídy C4a.
+
+__Kontakt__
+  - ondra.faltin@gmail.com / faltin@spsejecna.cz.
+
+<br>
+
+---
+Školní projekt, vypracován 20.12.2024

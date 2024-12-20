@@ -23,8 +23,11 @@ class LogManager:
         if type(stats_file) != str:
             raise TypeError("Soubor s nejčastějšími dotazy musí být poskytnut jako string!")
         
-        if not log_file.endswith(".txt") or not stats_file.endswith(".txt"):
-            raise ValueError("Soubor s logy / se statistikami, musí mít příponu .txt!")
+        if not log_file.endswith(".txt"): 
+            raise ValueError("Soubor s logy musí mít příponu .txt!")
+        
+        if not stats_file.endswith(".txt"):
+            raise ValueError("Soubor se statistikami musí mít příponu .txt!")
         
         self.log_file = log_file
         self.stats_file = stats_file

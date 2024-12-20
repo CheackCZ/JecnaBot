@@ -1,5 +1,6 @@
 import sys
 import os
+import asyncio
 import json
 
 # Add the 'src' directory to the module search path
@@ -35,9 +36,9 @@ class TestOfServer(unittest.TestCase):
         """
         self.assertEqual(self.server.config["host"], "localhost")
         self.assertEqual(self.server.config["port"], 7777)
-        self.assertEqual(self.server.config["ai_prompt"], "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user's input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.")
-        self.assertEqual(self.server.config["ai_model"], "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI")
-        self.assertEqual(self.server.config["openai_api_key"], "API-KEY")
+        self.assertEqual(self.server.config["ai_prompt"], "YOUR-AI-PROMPT")
+        self.assertEqual(self.server.config["ai_model"], "YOUR-AI-MODEL")
+        self.assertEqual(self.server.config["openai_api_key"], "YOUR-OPENAI-API-KEY")
         
     def test_init_invalid(self):
         """
@@ -89,9 +90,9 @@ Vítejte!
         valid_json = { 
             "host": "localhost", 
             "port": 7777, 
-            "ai_prompt" : "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user\'s input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.", 
-            "ai_model" : "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI", 
-            "openai_api_key": "API-KEY" }
+            "ai_prompt" : "YOUR-AI-PROMPT", 
+            "ai_model" : "YOUR-AI-MODEL", 
+            "openai_api_key": "YOUR-OPENAI-API-KEY" }
         self.assertEqual(self.server.config, valid_json)
         
     def test_load_config_invalid(self):
@@ -120,9 +121,9 @@ Vítejte!
         valid_config = {
             "host": "localhost",
             "port": 7777,
-            "ai_prompt": "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user's input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.",
-            "ai_model": "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI",
-            "openai_api_key": "API-KEY"
+            "ai_prompt": "YOUR-AI-PROMPT",
+            "ai_model": "YOUR-AI-MODEL",
+            "openai_api_key": "YOUR-OPENAI-API-KEY"
         }
         self.assertEqual(self.server.config, valid_config)
         
@@ -134,8 +135,8 @@ Vítejte!
         missing_key = {
             "host": "localhost",
             "port": 7777,
-            "ai_prompt": "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user's input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.",
-            "ai_model": "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI"
+            "ai_prompt": "YOUR-AI-PROMPT",
+            "ai_model": "YOUR-AI-MODEL"
         }
         with self.assertRaises(ValueError):
             self.server._validate_config(missing_key)

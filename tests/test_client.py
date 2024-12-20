@@ -35,9 +35,9 @@ class TestOfClient(unittest.TestCase):
         # Tests configration file key-value pairs
         self.assertEqual(self.client.config["host"], "localhost")
         self.assertEqual(self.client.config["port"], 7777)
-        self.assertEqual(self.client.config["ai_prompt"], "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user's input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.")
-        self.assertEqual(self.client.config["ai_model"], "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI")
-        self.assertEqual(self.client.config["openai_api_key"], "API-KEY")
+        self.assertEqual(self.client.config["ai_prompt"], "YOUR-AI-PROMPT")
+        self.assertEqual(self.client.config["ai_model"], "YOUR-AI-MODEL")
+        self.assertEqual(self.client.config["openai_api_key"], "YOUR-OPENAI-API-KEY")
         
         # Tests the uri for websocket
         self.assertEqual(self.client.uri, f"ws://{self.client.config['host']}:{self.client.config['port']}")
@@ -64,7 +64,13 @@ class TestOfClient(unittest.TestCase):
         Confirms proper loading of valid configuration files.
         """
         # Test dictionary with loaded values
-        valid_json = { "host": "localhost", "port": 7777, "ai_prompt" : "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user\'s input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.", "ai_model" : "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI", "openai_api_key": "API-KEY" }
+        valid_json = { 
+            "host": "localhost", 
+            "port": 7777, 
+            "ai_prompt" : "YOUR-AI-PROMPT", 
+            "ai_model" : "YOUR-AI-MODEL", 
+            "openai_api_key": "YOUR-OPENAI-API-KEY" 
+        }
         self.assertEqual(self.client.config, valid_json)
         
     def test_load_config_invalid(self):

@@ -1,8 +1,7 @@
 {
-    "host": "",
-    "port": 0,
-    "ai_model" : "",
-    "openai_api_key": "",    
-    "log_file" : "",
-    "stats_file" : ""
+    "host": "localhost",
+    "port": 7777,
+    "ai_prompt" : "Asistant should be a bit sarcastic ... ",
+    "ai_model" : "your-openai-model",
+    "openai_api_key": "your-api-key"
 }

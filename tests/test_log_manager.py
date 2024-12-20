@@ -64,10 +64,15 @@ class TestOfLogManager(unittest.TestCase):
         with self.assertRaises(TypeError):
             LogManager(stats_file=custom_stats_file)
             
-        # Tests invalid log files type
+        # Tests invalid log file type
         with self.assertRaises(ValueError):
             LogManager(log_file="test.csv")
-            
+        with self.assertRaises(ValueError):
+            LogManager(log_file="test.json")
+           
+        # Tests invalid stats file type
+        with self.assertRaises(ValueError):
+            LogManager(log_file="test.csv")
         with self.assertRaises(ValueError):
             LogManager(stats_file="test.json")
         
@@ -139,8 +144,31 @@ class TestOfLogManager(unittest.TestCase):
 
 
     @unittest.skip("test_analyze_logs_async is not implemented.")
-    def test_analyze_logs_async(self):
-        self.skipTest("NotImplemented.")
+    async def test_analyze_logs_async(self):
+        """
+        Tests the asynchronous log analysis method `analyze_logs_async`.
+        """
+        test_logger = LogManager(log_file=self.log_file, stats_file=self.stats_file)
+        
+        with open(self.log_file, "w", encoding="UTF-8") as log_file:
+            log_file.write(
+                "2024-12-17 16:32:58 | Question: jaká je její dostupnost MHD? -> Answer: Škola má výbornou dostupnost MHD, nachází se blízko stanic metra Karlovo náměstí a I.P. Pavlova (linka C), a také poblíž stanic náměstí I.P. Pavlova a Můstek (linky A a B).\n" +
+                "2024-12-17 16:36:40 | Question: Kdy se otevírá škola? -> Answer: Škola se obvykle otevírá v 7:00.\n" +
+                "2024-12-17 16:36:49 | Question: kdy se otevírá škola? -> Answer: Škola se otevírá v 7:00, přičemž první hodina začíná v 7:30.\n" +
+                "2024-12-17 16:39:46 | Question: Kde se dá koupit jídlo? -> Answer: Jídlo se dá zakoupit ve školní jídelně, která nabízí obědy, nebo v blízkých bufetech a bistrech.\n"
+            )
+
+        await test_logger.analyze_logs_async()
+
+        # Verify the results
+        results = test_logger.load_stats()
+        expected_stats = [
+            "kdy se otevírá škola?",
+            "jaká je její dostupnost mhd?",
+            "kde se dá koupit jídlo?"
+        ]
+
+        self.assertEqual(results, expected_stats)
         
           
     def test_get_questions(self):
@@ -152,6 +180,7 @@ class TestOfLogManager(unittest.TestCase):
         test_logger.most_asked_questions = ["kdy se otevírá škola?", "jaká je její dostupnost mhd?", "kde se dá koupit jídlo?"]
 
         self.assertEqual(test_logger.get_questions(), test_logger.most_asked_questions)
+        
         
 if __name__ == "__main__":
     unittest.main()

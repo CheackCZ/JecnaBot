@@ -74,3 +74,6 @@
 2024-12-20 18:12:04 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
 2024-12-20 21:06:38 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
 2024-12-20 21:06:45 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 22:27:16 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 22:44:15 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 22:44:37 | Question: kde se nachází škola? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.
