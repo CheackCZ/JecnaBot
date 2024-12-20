@@ -5,7 +5,7 @@ import threading
 from collections import Counter
 from datetime import datetime
 
-class Log_Manager:
+class LogManager:
     """
     A class to manage logging of questions and answers, analyze log files, and track the most frequently asked questions.
     """
@@ -17,8 +17,18 @@ class Log_Manager:
         :param log_file (str): Path to the log file where questions and answers are recorded.
         :param stats_file (str): Path to the stats file where the top questions are stored.
         """
+        if type(log_file) != str:
+            raise TypeError("Soubor s logy musí být poskytnut jako string!")
+        
+        if type(stats_file) != str:
+            raise TypeError("Soubor s nejčastějšími dotazy musí být poskytnut jako string!")
+        
+        if not log_file.endswith(".txt") or not stats_file.endswith(".txt"):
+            raise ValueError("Soubor s logy / se statistikami, musí mít příponu .txt!")
+        
         self.log_file = log_file
         self.stats_file = stats_file
+        
         self.lock = threading.Lock()
         self.most_asked_questions = self.load_stats()
 
@@ -35,6 +45,8 @@ class Log_Manager:
 
         with open(self.log_file, "a", encoding="UTF-8") as file:
             file.write(log_entry)
+            
+        return log_entry
 
 
     def analyze_logs(self):

@@ -1,7 +1,7 @@
 import websockets
 import asyncio
 
-from log_manager import Log_Manager
+from log_manager import LogManager
 from response_logic import ResponseLogic
 
 class Session:
@@ -22,7 +22,7 @@ class Session:
         self.websocket = websocket
         self.client_id = id(websocket)
         self.logic = logic
-        self.logger = Log_Manager()
+        self.logger = LogManager()
 
 
     async def handle_session(self):

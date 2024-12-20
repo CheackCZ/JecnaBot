@@ -1,4 +1,17 @@
 # Ignore actual configuration files
 config.json
-**/__pycache__/
+
+# Ignore compiled bytecode and cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore IDE specific files
 .vscode/
+.idea/.vscode/
+
+# Ignore test coverage files
+tests/.coverage
+
+# Ignore coverage files
+.coverage

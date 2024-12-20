@@ -14,7 +14,7 @@ class Client:
 
         :param config_file (str): Path to the JSON configuration file containing server settings.
         """
-        if not isinstance(config_file, str):
+        if type(config_file) != str:
             raise TypeError("Konfigurační soubor musí být poskytnut jako string!")
 
         if not config_file.endswith(".json"):

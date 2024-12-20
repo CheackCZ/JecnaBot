@@ -27,3 +27,48 @@
 2024-12-19 09:36:51 | Question: děkuji! -> Answer: Není zač! Pokud máte další otázky, neváhejte se zeptat.
 2024-12-19 10:46:17 | Question: Kolik má škola budov? -> Answer: Škola má dvě hlavní budovy.
 2024-12-19 10:46:23 | Question: kde se nachází? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.
+2024-12-19 13:15:31 | Question: Kudy se dá ke škole dostat? -> Answer: K škole je výborná dostupnost městskou hromadnou dopravou, zejména tramvajemi a metrem.
+2024-12-20 12:58:49 | Question: V koik hodin začíná výuka: -> Answer: Výuka obvykle začíná v 8:00, přičemž rozvrh se může lišit podle ročníku.
+2024-12-20 15:33:51 | Question: Kdo je ředitelem školy? -> Answer: Ředitelem školy je Ing. Jan Šedivý, dostupné informace najdete na stránce vedení školy.
+2024-12-20 15:34:43 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 15:35:07 | Question: Kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Petr Kratochvíl, kontakt: kratochvil@spsejecna.cz, 739 900 178.
+2024-12-20 15:35:13 | Question: Kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Karel Dvořák, kontakt: dvorak@spsejecna.cz, 774634261. (https://www.spsejecna.cz/kontakt)
+2024-12-20 15:35:30 | Question: Kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Jiří Vávra, kontakt: vavra@spsejecna.cz, 739 601 738. Schůzky je nutné domluvit předem. (https://www.spsejecna.cz/kontakt)
+2024-12-20 15:35:39 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 15:35:43 | Question: Kdo je ředitelem školy? -> Answer: Ředitelem školy je Ing. Jiří Odehnal, Ph.D. 
+2024-12-20 15:36:14 | Question: Kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Karel Hanzl. Kontakt: hanzl@spsejecna.cz, 739 014 261. (https://www.spsejecna.cz/kontakt)
+2024-12-20 15:36:46 | Question: Kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Ladislav Holeček, kontakt: holecek@spsejecna.cz. (https://www.spsejecna.cz/kontakt)
+2024-12-20 15:36:54 | Question: Kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Jiří Kůs, kontakt: kuS@spsejecna.cz. Для связи с заместителями, управляющим или службой поддержки, используйте общие адреса и телефоны, указанные на странице контактной информации.
+2024-12-20 15:37:11 | Question: Kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Martin Doležal, kontakt: dolezal@spsejecna.cz, 736 759 127. (https://www.spsejecna.cz/kontakt)
+2024-12-20 15:37:26 | Question: Jaké jsou úřední hodiny výchovných poradkyň? -> Answer: Výchovné poradkyně mají úřední hodiny: Mgr. Šárka Kocourková Po–Pá 9:35–10:30, Mgr. Zuzana Šteflová Po–Pá 9:35–10:30. (https://www.spsejecna.cz/poradci)
+2024-12-20 15:37:47 | Question: MHD? -> Answer: Škola je výborně dostupná městskou hromadnou dopravou, a to tramvajemi, autobusy a metrem (linky B a C).
+2024-12-20 15:37:58 | Question: jaká je nejbližší zastávka tramvaje? -> Answer: Nejbližší tramvajová zastávka je "Štěpánská".
+2024-12-20 15:45:10 | Question: Kdy začíná výuka? -> Answer: Omlouvám se, došlo k chybě při získávání odpovědi.
+2024-12-20 15:47:32 | Question: jaká je nejbližší zastávka tramvaje? -> Answer: Nejbližší zastávka tramvaje je "Štěpánská".
+2024-12-20 17:30:01 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:33:04 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:33:42 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:34:47 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:36:03 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:36:37 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:36:57 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:37:05 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:37:47 | Question: kolik má škola budov? -> Answer: Škola má dvě budovy. Jedna se zaměřuje na odborné učebny a laboratoře, druhá na administrativu a běžnou výuku.
+2024-12-20 17:37:56 | Question: má škola tělocvičnu? -> Answer: Ano, škola má tělocvičnu.
+2024-12-20 17:38:05 | Question: A venkovní hřiště? -> Answer: Škola má venkovní hřiště, které slouží pro sportovní aktivity, jako je basketbal, volejbal nebo tenis.
+2024-12-20 17:49:16 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:49:59 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:50:50 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:58:28 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 17:59:02 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:00:41 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:04:23 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:05:16 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:06:14 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:06:25 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:07:27 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:09:40 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:09:52 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:10:00 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:10:40 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-20 18:12:04 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.

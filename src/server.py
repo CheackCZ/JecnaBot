@@ -1,7 +1,6 @@
 import asyncio
 import websockets
 import json
-import re
 import keyboard
 
 from session import Session
@@ -18,11 +17,11 @@ class Server:
 
         :param config_file (str): Path to the JSON configuration file containing server settings.
         """
-        if not isinstance(config_file, str):
+        if type(config_file) !=  str:
             raise TypeError("Konfigurační soubor musí být dosazen a vložen jako String!")
 
-        if not re.search(r"^.*\.json$", config_file):
-            raise Exception("Konfigurační soubor musí být .json!")
+        if not config_file.endswith(".json"):
+            raise ValueError("Konfigurační soubor musí mít příponu .json!")
 
         self.config_file = config_file
         self.config = self._load_config(config_file)
@@ -56,7 +55,6 @@ Vítejte!
 -> Naslouchám pro klávesnicové zkratky:
  └ Ctrl+R - Znovu načtení konfigurace
  └ Ctrl+C - ukončení serveru.
- 
 """
     )
         return welcome_message
@@ -93,10 +91,9 @@ Vítejte!
         rules = {
             "host":             lambda h: type(h) == str,
             "port":             lambda p: type(p) == int and 1 <= p <= 65535,
+            "ai_prompt":        lambda a: type(a) == str,
             "ai_model":         lambda a: type(a) == str,
-            "openai_api_key":   lambda o: type(o) == str,
-            "log_file":         lambda l: type(l) == str and l.endswith('.txt'),
-            "stats_file":       lambda s: type(s) == str and s.endswith('.txt')
+            "openai_api_key":   lambda o: type(o) == str
         }
 
         # Check for missing keys
@@ -127,7 +124,7 @@ Vítejte!
                 print(f" -> Error při načítání konfigurace: {e}")
 
 
-    async def admin_shortcuts(self):
+    async def reload_shortcut(self):
         """
         Listens for keyboard shortcuts for admin commands.
         """
@@ -161,7 +158,7 @@ Vítejte!
         server_task = websockets.serve(self.handle_client, self.config["host"], self.config["port"], ping_interval=60, ping_timeout=30)
         print(f" -> Server spuštěn a naslouchá na ws://{self.config['host']}:{self.config['port']}")
 
-        shortcut_task = self.admin_shortcuts()
+        shortcut_task = self.reload_shortcut()
 
         await asyncio.gather(server_task, shortcut_task)
 

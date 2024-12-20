@@ -1,58 +1,87 @@
 # JečnáBot
 
-**JečnáBot** je WebSocket server a klient, který poskytuje odpovědi na dotazy uživatelů o škole SPŠE Ječná s využitím OpenAI API. Projekt zahrnuje asynchronní serverovou logiku, správu jednotlivých relací a logování komunikace do souboru. Všechny konfigurační data jsou brána ze souboru config.json.
+## Obsah
+- [Úvod](#úvod)
+- [Architektura](#architektura)
+- [Funkcionalita](#Funkcionalita)
+  - [WebSocket Server](#websocket-server)
+  - [WebSocket Klient](#websocket-klient)
+  - [Logování a analýza](#logování-a-analýza)
+  - [Správa konfigurace](#správa-konfigurace)
+- [Instalace](#instalace)
+- [Spuštění Projektu](#spuštění-projektu)
+  - [Spuštění serveru](#spuštění-klienta)
+  - [Spuštění klienta](#spuštění-serveru)
+  - [Ukončení Spojování](#ukončení-spojování)
+- [Struktura projektu](#struktura-projektu)
+- [Zdroje](#zdroje)
+
+
+## Úvod
+**JečnáBot** je chatbot (AI) zaměřen a specifikován pouze na školu SPŠE Ječná, tudíž odpovídá pouze na dotazy, které nějak souvisí s touto školou, protože byl vytrénován na testovacích datech (dvakrát), týkajících se pouze této školy. 
+
+Používá webSocket server a klienty, kteří se k serveru připojí a mohou se ptát na otázky. Chatbot následně odpoví pomocí OpenAI API a testovacích dat.
+
+Projekt zahrnuje asynchronní serverovou logiku, správu jednotlivých relací a logování komunikace do souboru. Všechny konfigurační data jsou brána ze souboru config.json.
+
+## Architektura
+- `server.py`: Serverová aplikace využívající knihovnu websockets. Zpracovává připojení klientů, správu konfigurace a dynamické generování odpovědí pomocí ResponseLogic.
+- `client.py`: Klientská aplikace pro interakci se serverem. Umožňuje uživateli zasílat zprávy a přijímat odpovědi.
+- `session.py`: Správa jednotlivých relací WebSocket spojení. Obsahuje logiku pro příjem a zpracování zpráv.
+- `response_logic.py`: Zpracování odpovědí pomocí OpenAI API.
+- `log_manager.py`: Správa logů a analýza často kladených dotazů
+
 
 ## Funkcionalita
-- **Server:**
-  - Poslouchá připojení přes WebSocket na definovaném hostu a portu.
-  - Zpracovává dotazy uživatelů a vrací odpovědi přes OpenAI API.
-  - Loguje dotazy a odpovědi do textového souboru `log.txt`.
+### WebSocket Server:
+- Asynchronní komunikace s klienty.
+- Dynamická odpověď na otázky pomocí OpenAI API.
+- Správa konfigurace za běhu (klávesové zkratky).
 
-- **Klient:**
-  - Navazuje spojení se serverem.
-  - Umožňuje uživateli zasílat dotazy a získávat odpovědi v reálném čase.
+### WebSocket Klient:
+- Odesílání dotazů na server.
+- Příjem odpovědí.
+- Možnost odpojení.
 
-## Požadavky
-Projekt je napsán v Pythonu (3.13.1) a vyžaduje následující knihovny:
-- `websockets` (WebSocket server a klient)
-- `openai` (API OpenAI)
-- `asnycio` (Asynchronní metody)
+### Logování a analýza:
+ - Záznam všech dotazů a odpovědí.
+ - Identifikace nejčastějších dotazů.
 
-### Instalace knihoven
-Spusť následující příkazy pro instalaci knihoven:
-```bash
-pip install websockets openai
-```
+### Správa konfigurace:
+ - Validace konfiguračního souboru.
+ - Načítání nových nastavení za běhu.
 
-## Konfigurace
-Všechny důležité parametry jsou uloženy v souboru `config.json`:
-```json
+
+## Instalace
+1. Naklonování repozitáře (příp. otevření zip souboru)
+  ```
+  git clone https://github.com/CheackCZ/JecnaBot.git
+  cd JecnaBot
+  ```
+
+2. Instalace závislostí (pomocí pip)
+ - Projekt je psán v `python 3.13.1`
+  ```
+  pip install -r requirements.txt
+  ```  
+
+3. Nastavení konfigurace
+ - v souboru `config.json`:
+ ```json
 {
-    "host": "127.0.0.1",
-    "port": 8765,
+    "host": "localhost",
+    "port": 7777,
+    "ai_prompt": "Responses in english only ...",
+    "ai_model": "gpt-4o-mini",
     "openai_api_key": "TVŪJ_API_KLÍČ"
 }
 ```
-- **host:** Adresa serveru (např. `127.0.0.1`).
-- **port:** Port, na kterém bude server naslouchat.
-- **openai_api_key:** Tvůj API klíč pro OpenAI.
+   - **host** - Adresa serveru (např. `127.0.0.1`).
+   - **port** - Port, na kterém bude server naslouchat.
+   - **ai_prompt** - Počáteční prompt pro OpenAI API.
+   - **ai_model** - Model použitý pro generování odpovědí.
+   - **openai_api_key** - API klíč OpenAI.
 
-Ujisti se, že máš platný OpenAI API klíč.
-
-## Asynchronní metody a kooperativní multitasking
-Celý projekt je postaven na asynchronních metodách, což umožňuje efektivní zpracování více uživatelských relací současně:
-- **Server:** Metody jako `handle_client` a `run` ve `server.py` používají `async` a `await` pro zpracování připojení více uživatelů bez blokování hlavního vlákna.
-- **Klient:** Klient v `client.py` komunikuje se serverem asynchronně pomocí `asyncio` a `websockets.connect`, v mětodě `connect`.
-- **Kooperativní multitasking:** Asynchronní programování zajišťuje, že úlohy neblokují ostatní relace nebo úlohy. Místo toho úlohy kooperují a střídají se v používání CPU.
-
-Příkladem je čekání na zprávu klienta nebo odpověď od OpenAI API, které neblokuje zpracování dalších relací:
-```python
-async def handle_session(self):
-    while True:
-        client_message = await self.websocket.recv()
-        response = self.logic.get_answer(client_message)
-        await self.websocket.send(response)
-```
 
 ## Spuštění projektu
 
@@ -80,39 +109,47 @@ nebo se odpoj ručně pomocí:
 CTRL + C
 ```
 
-## Logování
-Veškerá komunikace mezi klientem a serverem (dotazy a odpovědi) je zaznamenána do souboru `log.txt`.
 
 ## Struktura projektu
 ```
 .
-├── /src               # Zdrojový kód
-│   ├── server.py         # Hlavní logika serveru
-│   ├── client.py         # Klientská aplikace
-│   ├── response_logic.py # AI Integrace
-│   ├── session.py        # Relace jednotlivých komunikačních kanálů
-|   └── log_manager.py  # Logování zpráv 
-├── /tests             # Testy
-│   ├── test_server.py  # Testy funkcionality serveru
-│   ├── test_client.py  # Testy klienta
-│   └── test_logic.py   # Testy logiky odpovědí
-├── /docs              # Dokumentace
-│   ├── requirements.txt
-│   └── user_guide.pdf  # Uživatelská příručka (volitelně)
-├── README.md       # Popis projektu
-└── config.json     # Konfigurační soubor (např. port, AI klíče)
+├── /data                       # Data (trénovací)
+│   └── training_Data.jsonl     # Trénovací data (v požadovaném formátu)
+│
+├── /logs                       # Soubory s logy a statistikami
+│   ├── log.txt                 # Logovací data
+│   └── stats.txt               # Najčastější dotazy
+│
+├── /src                        # Zdrojový kód
+│   ├── server.py               # Hlavní logika serveru
+│   ├── client.py               # Klientská aplikace
+│   ├── response_logic.py       # AI Integrace
+│   ├── session.py              # Relace jednotlivých komunikačních kanálů
+|   └── log_manager.py          # Logování zpráv a nejčastějších dotazů
+│
+├── /tests                      # Testy
+│   ├── test_server.py          # Testy funkcionality serveru
+│   ├── test_log_manager.py     # Testy LogManagera
+│   ├── test_response_logic.py  # Testy logiky odpovědí (AI)
+│   ├── test_client.py          # Testy klienta
+│   └── test_session.py         # Testy jednotlivých relací a jejich funkcí
+│
+├── README.md                   # Popis projektu
+└── config.json                 # Konfigurační soubor (např. port, AI detaily)
+└── requirements.txt            # Závslosti
 ```
 
-## Ukázka použití
-1. Spusť server (`server.py`).
-2. Spusť klienta (`client.py`).
-3. Začni pokládat dotazy a sledovat odpovědi.
+## Zdroje
+- [ChatGPT]()
+- [Platforma OpenAI API]()
+- [Kódy ze cvičení]()
+- [Oficiální python dokumentace]()
+- [Asynchronní unittesty](https://bbc.github.io/cloudfit-public-docs/asyncio/testing.html)
+- [.jsonl](https://jsonlines.org/)
+- [Asychnronní používání 1](https://naucse.python.cz/lessons/intro/async/)
+- [Asychnronní používání 2](https://www.geeksforgeeks.org/asyncio-in-python/)
+...
 
-Příklad interakce:
-```
- > Vy: Jaké obory má SPŠE Ječná?
- └ Bot: SPŠE Ječná nabízí obory jako...
-```
+<br>
 
-### Autor
-Ondřej Faltin.
+__Autor__ - Ondřej Faltin.
