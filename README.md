@@ -14,6 +14,8 @@
   - [Spuštění klienta](#spuštění-serveru)
   - [Ukončení Spojování](#ukončení-spojování)
 - [Struktura projektu](#struktura-projektu)
+- [Testování](#testování)
+- [Deployment a odevzdání](#deployment-a-odevzdání)
 - [Zdroje](#zdroje)
 
 
@@ -109,7 +111,6 @@ nebo se odpoj ručně pomocí:
 CTRL + C
 ```
 
-
 ## Struktura projektu
 ```
 .
@@ -138,6 +139,26 @@ CTRL + C
 └── config.json                 # Konfigurační soubor (např. port, AI detaily)
 └── requirements.txt            # Závslosti
 ```
+
+## Testování
+- Byly vytvořeny unit testy pomocí unittest:
+  - Testy pro funkce serveru (test_server.py).
+  - Testy pro funkce klienta (test_server.py).
+  - Analýza logů (test_log_manager.py).
+  - Testy pro odpovědi od openai (test_server.py).
+  - Testování jednotlivých relací (test_session.py)
+
+- Bylo testován i asynchronní přístup pomocí více připojených uživatelů, více otázek posílaných najednou a asynchronní zapisování do `log.txt` a `stats.txt`.
+- Také byli provedeny testy s neplatnou konfigurací a nevalidními vstupy.
+
+__Reporting__
+- Bylo by možné dodělat a přidat více uit testů.
+- Udělat grafické prostředí.
+- Nasadit službu na server.
+- Trénovat chatbota s více trénovacími daty.
+
+## Deployment a Odevzdání
+- Projekt je odevzdán jako .zip archiv. Avšak je možné si ho stáhnout z githubu po povolení přístupu: [Github](https://github.com/CheackCZ/JecnaBot).
 
 ## Zdroje
 - [ChatGPT]()
