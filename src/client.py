@@ -2,7 +2,6 @@ import asyncio
 import websockets
 import json
 
-
 class Client:
     """
     WebSocket client for communication with the server.

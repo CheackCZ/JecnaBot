@@ -147,8 +147,9 @@ CTRL + C
   - Analýza logů (test_log_manager.py).
   - Testy pro odpovědi od openai (test_server.py).
   - Testování jednotlivých relací (test_session.py)
+- Pro spuštění unitestů a dostání výsledků je třeba prvně vyplnit api klíč k OpenAI API, kde je to třeba. (V kódu je to vyznačeno).
 
-- Bylo testován i asynchronní přístup pomocí více připojených uživatelů, více otázek posílaných najednou a asynchronní zapisování do `log.txt` a `stats.txt`.
+- Bylo testován i asynchronní přístup pomocí¨ více připojených uživatelů, více otázek posílaných najednou a asynchronní zapisování do `log.txt` a `stats.txt`.
 - Také byli provedeny testy s neplatnou konfigurací a nevalidními vstupy.
 
 __Reporting__

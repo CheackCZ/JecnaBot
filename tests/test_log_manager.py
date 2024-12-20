@@ -11,14 +11,23 @@ from log_manager import LogManager
 import unittest
 
 class TestOfLogManager(unittest.TestCase):
+    """
+    Unit test class for testing the `LogManager` class methods.
+    """
     
     def setUp(self):
+        """
+        Sets up the test environment by initializing the `LogManager` instance and temporary test files.
+        """
         self.logger = LogManager(log_file="logs/log.txt", stats_file="logs/stats.txt")
         
         self.log_file = "test_log_file.txt"
         self.stats_file = "test_stats_file.txt"
 
     def tearDown(self):
+        """
+        Cleans up temporary files created during tests.
+        """
         if os.path.exists(self.log_file):
                 os.remove(self.log_file)
         if os.path.exists(self.stats_file):
@@ -26,6 +35,9 @@ class TestOfLogManager(unittest.TestCase):
             
     
     def test_init(self):
+        """
+        Verifies correct initialization with default and custom log file paths.
+        """
         # Tests default log files (path)
         logger = LogManager()
         self.assertEqual(logger.log_file, "../logs/log.txt")
@@ -40,6 +52,9 @@ class TestOfLogManager(unittest.TestCase):
         self.assertEqual(logger.stats_file, custom_stats_file)
         
     def test_init_invalid(self):
+        """
+        Ensures exceptions are raised for invalid log or stats file paths.
+        """
         # Tests invalid log files data type
         custom_log_file = 12
         with self.assertRaises(TypeError):
@@ -58,6 +73,9 @@ class TestOfLogManager(unittest.TestCase):
         
         
     def test_log_record(self):
+        """
+        Validates correct formatting of log entries for questions and answers.
+        """
         current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         question = "Kdy začíná výuka?"
         answer = "Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času."
@@ -68,6 +86,9 @@ class TestOfLogManager(unittest.TestCase):
         
     
     def test_analyze_logs(self):
+        """
+        Confirms proper analysis of logs to extract frequently asked questions.
+        """
         test_logger = LogManager(log_file=self.log_file, stats_file=self.stats_file)
         
         with open(self.log_file, "w", encoding="UTF-8") as log_file:
@@ -91,6 +112,9 @@ class TestOfLogManager(unittest.TestCase):
         
         
     def test_load_stats(self):
+        """
+        Verifies correct loading of statistics from the stats file.
+        """
         test_logger = LogManager(log_file=self.log_file, stats_file=self.stats_file)
         stats = ["kdy se otevírá škola?", "jaká je její dostupnost mhd?", "kde se dá koupit jídlo?"]
 
@@ -101,6 +125,9 @@ class TestOfLogManager(unittest.TestCase):
         self.assertEqual(result, stats)
         
     def test_load_stats_invalid(self):
+        """
+        Ensures proper behavior when the stats file is missing.
+        """
         # Tests that file does not exist
         if os.path.exists(self.stats_file):
             os.remove(self.stats_file)
@@ -117,6 +144,9 @@ class TestOfLogManager(unittest.TestCase):
         
           
     def test_get_questions(self):
+        """
+        Checks retrieval of most asked questions from memory.
+        """
         test_logger = LogManager(log_file=self.log_file, stats_file=self.stats_file)
 
         test_logger.most_asked_questions = ["kdy se otevírá škola?", "jaká je její dostupnost mhd?", "kde se dá koupit jídlo?"]

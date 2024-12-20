@@ -10,25 +10,39 @@ from server import Server
 import unittest
 
 class TestOfServer(unittest.TestCase):
+    """
+    Unit test class for testing the `Server` class methods.
+    """
     
     def setUp(self):
+        """
+        Initializes the test environment, including a `Server` instance and temporary files for invalid configurations.
+        """
         self.server = Server("config.json")
         self.invalid_config_file = "invalid.config.example.json"
 
     def tearDown(self):
+        """
+        Cleans up temporary files created during tests.
+        """
         if os.path.exists(self.invalid_config_file):
             os.remove(self.invalid_config_file)
         
         
     def test_init(self):
-        # Tests configration file key-value pairs
+        """
+        Validates proper initialization and configuration values.
+        """
         self.assertEqual(self.server.config["host"], "localhost")
         self.assertEqual(self.server.config["port"], 7777)
         self.assertEqual(self.server.config["ai_prompt"], "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user's input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.")
         self.assertEqual(self.server.config["ai_model"], "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI")
-        self.assertEqual(self.server.config["openai_api_key"], "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")
+        self.assertEqual(self.server.config["openai_api_key"], "API-KEY")
         
     def test_init_invalid(self):
+        """
+        Tests that invalid configuration inputs raise appropriate exceptions.
+        """
         # Tests invalid file type (not a string)
         with self.assertRaises(TypeError):
             Server(123)
@@ -39,6 +53,9 @@ class TestOfServer(unittest.TestCase):
         
     
     def test_welcome_message(self):
+        """
+        Verifies the server's welcome message format.
+        """
         welcome_message = ( 
         r"""
 Vítejte na Ječnábot serveru! 
@@ -65,16 +82,22 @@ Vítejte!
         
         
     def test_load_config(self):
+        """
+        Ensures valid configuration files load correctly.
+        """
         # Test dictionary with loaded values
         valid_json = { 
             "host": "localhost", 
             "port": 7777, 
             "ai_prompt" : "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user\'s input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.", 
             "ai_model" : "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI", 
-            "openai_api_key": "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" }
+            "openai_api_key": "API-KEY" }
         self.assertEqual(self.server.config, valid_json)
         
     def test_load_config_invalid(self):
+        """
+        Confirms that invalid configuration files raise appropriate exceptions.
+        """
         # Tests invalid file name / location 
         with self.assertRaises(FileNotFoundError):
             self.server._load_config("configuration-invalid.json")
@@ -91,16 +114,22 @@ Vítejte!
             
             
     def test_validate_config(self):
+        """
+        Validates that configuration keys and values are correct.
+        """
         valid_config = {
             "host": "localhost",
             "port": 7777,
             "ai_prompt": "You are an assistant that only provides accurate and factual information about SPŠE Ječná, a technical high school located in Prague. Avoid speculating or providing irrelevant information. Always respond in the same language as the user's input. If the user asks in Czech, respond only in Czech. If the user asks in English, respond only in English. Do not mix languages.",
             "ai_model": "ft:gpt-4o-mini-2024-07-18:personal:jecna-bot:AgYGPtrI",
-            "openai_api_key": "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"
+            "openai_api_key": "API-KEY"
         }
         self.assertEqual(self.server.config, valid_config)
         
     def test_validate_config_invalid(self):
+        """
+        Ensures invalid configurations are flagged.
+        """
         # Tests missing keys
         missing_key = {
             "host": "localhost",
@@ -122,17 +151,20 @@ Vítejte!
         with self.assertRaises(ValueError):
             self.server._validate_config(wrong_values)
         
-    
-    def test_reload_config(self):
+    @unittest.skip("test_reload_config is not implemented.")
+    async def test_reload_config(self):
         self.skipTest("NotImplementedYet.")
         
-    def test_reload_shortcut(self):
+    @unittest.skip("test_reload_shortcut is not implemented.")
+    async def test_reload_shortcut(self):
         self.skipTest("NotImplementedYet.")
         
-    def test_handle_client(self):
+    @unittest.skip("test_handle_client is not implemented.")
+    async def test_handle_client(self):
         self.skipTest("NotImplementedYet.")
         
-    def test_run(self):
+    @unittest.skip("test_run is not implemented.")
+    async def test_run(self):
         self.skipTest("NotImplementedYet.")
         
 if __name__ == "__main__":

@@ -126,7 +126,7 @@ Vítejte!
 
     async def reload_shortcut(self):
         """
-        Listens for keyboard shortcuts for admin commands.
+        Listens for keyboard shortcuts to reload the configuration.
         """
         while True:
             if keyboard.is_pressed("ctrl+r"):

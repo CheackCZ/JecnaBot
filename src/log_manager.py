@@ -77,6 +77,8 @@ class LogManager:
     def load_stats(self):
         """
         Loads the top questions from the stats file into memory.
+        
+        :return: list with stats / error message.
         """
         try:
             with open(self.stats_file, "r", encoding="UTF-8") as file:
@@ -97,6 +99,8 @@ class LogManager:
     def get_questions(self):
         """
         Returns the current list of the most frequently asked questions.
+        
+        :return: the (3) most asked questions.
         """
         with self.lock:
             return self.most_asked_questions
