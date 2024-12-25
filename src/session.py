@@ -1,5 +1,6 @@
 import websockets
 import asyncio
+import json
 
 from log_manager import LogManager
 from response_logic import ResponseLogic
@@ -24,7 +25,6 @@ class Session:
         self.logic = logic
         self.logger = LogManager()
 
-
     async def handle_session(self):
         """
         Manages a WebSocket session with the client.
@@ -45,38 +45,22 @@ class Session:
             except Exception as e:
                 print(f"Chyba: {e}")
                 break
-    
-    
+
     async def _welcome_message(self):
         """
-        Sends a welcome message.
+        Sends a welcome message and frequently asked questions separately.
         """
         common_questions = self.logger.get_questions()
-        formatted_questions = "\n".join([f" └ {i+1}. {q}" for i, q in enumerate(common_questions)])
+        formatted_questions = [{"id": i + 1, "text": q} for i, q in enumerate(common_questions)]
 
-        welcome_message = ( 
-            "\nVítejte, Ječnábot! \n\n" +
-            " * Dokumentace:  /README.md (https://github.com/CheackCZ/JecnaBot)\n" +
-            " * Podpora:      ondra.faltin@gmail.com (ondrejfaltin.cz)\n" +
-            "Kontaktuje podporu nebo se podívejte dokumentace pro více informací!\n" + 
-                  
-            "\n      _       _ _          __ ____        _   " +
-            "\n     | |      \_/         /_/|  _ \      | |  " +
-            "\n     | | ___  ___ _ __   __ _| |_) | ___ | |_ " +
-            "\n _   | |/ _ \/ __| '_ \ / _` |  _ < / _ \| __|" +
-            "\n| |__| |  __/ (__| | | | (_| | |_) | (_) | |_ " +
-            "\n \____/ \___|\___|_| |_|\__,_|____/ \___/ \__|" +
-          
-            "\n\n Vítejte!\n" +
-          
-            "\n >> Nejčastější otázky:\n"
-            f"{formatted_questions}\n"
-          
-            "\n >> Co pro Vás mohu udělat? \n"
-            " └─ Napište otázku, 'exit' pro ukončení, nebo vyberte otázku pomocí čísla :)\n"
-        )
-        await self.websocket.send(welcome_message)
-        
+        welcome_message = {
+            "type": "welcome",
+            "message": "Ahoj, Co pro Vás mohu udělat?",
+            "questions": formatted_questions
+        }
+
+        print("Sending welcome message:", json.dumps(welcome_message))  # Debug
+        await self.websocket.send(json.dumps(welcome_message))
         
     async def _process_message(self, client_message):
         """
@@ -90,17 +74,33 @@ class Session:
         print(f"\n    - Uživatel ({self.client_id}): {client_message}")
 
         if client_message.lower() == "exit":
-            await self.websocket.send(" -> Odpojuji se. Nashledanou!")
+            response_message = {
+                "type": "info",
+                "message": " -> Odpojuji se. Nashledanou!"
+            }
+            await self.websocket.send(json.dumps(response_message))
             print(f"\n > Uživatel ({self.client_id}) se odpojil.")
             return
 
         if client_message.lower() == "reload" and self.server:
-            await self.server.reload_config()
-            await self.websocket.send(" -> Konfigurace byla úspěšně aktualizována.")
+            response_message = {
+                "type": "info",
+                "message": " -> Konfigurace byla úspěšně aktualizována."
+            }
+            await self.websocket.send(json.dumps(response_message))
             return
 
+        # Process the answer
         answer = self.logic.get_answer(client_message)
-        await self.websocket.send(f"{answer}")
+        response_message = {
+            "type": "response",
+            "message": answer
+        }
+
+        # Debugging: Print the JSON being sent
+        print("Sending response (JSON):", json.dumps(response_message))
+
+        await self.websocket.send(json.dumps(response_message))
 
         self.logger.log_record(question=client_message, answer=answer)
         asyncio.create_task(self.logger.analyze_logs_async())

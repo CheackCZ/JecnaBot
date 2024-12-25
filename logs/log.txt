@@ -83,3 +83,26 @@
 2024-12-25 10:53:59 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 8:00. Dříve než jinde, aby měli studenti odpoledně více času.
 2024-12-25 10:54:10 | Question: Jak se dostanu do školy? -> Answer: Do školy se dostanete tramvajemi (linka 4, 14, 22), metrem (linky B a C) nebo autobusy (linky 130, 175).
 2024-12-25 10:54:30 | Question: Jak se jmenují jednotlivé zastávky? -> Answer: Zastávky tramvají linky 9 jsou: U Půjčovny, Ječná, Štěpánská, Národní třída, Lazarská, I. P. Pavlova, Děkanka a Sídliště petřiny. Zastávky trolejbusů linky 139 jsou: Štěpánská, Bělehradská, Mikovcova a I. P. Pavlova. Zastávky linky 118 jsou: Ječná, Vrcholová a Sídliště petřiny. (Zdroj: https://www.spsejecna.cz/doprava)
+2024-12-25 11:00:43 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 11:00:57 | Question: Jak se dostanu do školy? -> Answer: Do školy se nejlépe dostanete tramvajemi č. 9, 14, 24 nebo metrem linky B, stanice Karlovo náměstí, následně pěšky.
+2024-12-25 12:57:43 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 12:58:37 | Question: kolik je možných spojů? -> Answer: Spojů je 611, z toho 569 pravidelných. Mimo pravidelné spoje lze využít i 42 spěšných spojů s retenčními vozy. Pravidelné jízdní řády najdete na stránkách Dopravního podniku. (https://www.spsejecna.cz/dopravni-spojeni)
+2024-12-25 13:00:07 | Question: kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Martin Dvořák, kontakt: dvorak@spsejecna.cz, 604 173 081. (https://www.spsejecna.cz/kontakt)
+2024-12-25 13:00:08 | Question: kolik je možných spojů? -> Answer: Přes 70 spojů od 14:35 do 18:30 s dopravou tramvajemi, autobusy a metrem. (https://www.spsejecna.cz/rozvrhy)
+2024-12-25 13:00:09 | Question: kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Martin Fuchs, kontakt: fuchs@spsejecna.cz, 604611629. (https://www.spsejecna.cz/kontakt)
+2024-12-25 13:00:10 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 13:00:22 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 13:04:27 | Question: kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Daniel Fiala. Kontaktní e-mail je fiala@spsejecna.cz. Kontakt s ředitelem: [kancelář ředitele](https://www.spsejecna.cz/kontakt).
+2024-12-25 13:06:20 | Question: kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Petr Klement. Kontakt: klement@spsejecna.cz,  603 712 663. (https://www.spsejecna.cz/kontakt)
+2024-12-25 13:07:39 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 13:08:14 | Question: Kde se škola nachází? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.
+2024-12-25 13:08:19 | Question: ('kdy začíná výuka?', 39) -> Answer: Výuka začíná většinou od 8:00. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 13:08:31 | Question: nezačíná náhodou v 7:30? -> Answer: Ano, některé ranní vyučovací hodiny mohou začínat v 7:30.
+2024-12-25 13:09:30 | Question: kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Pavel Kurtin. Jeho kontakt je kurtin@spsejecna.cz. 
+2024-12-25 13:11:14 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 13:11:31 | Question: Jak se do školy dostanu? -> Answer: Škola je dostupná tramvajemi (linka 22, 26), autobusy (linky 136, 175) a metrem (linky B a C).
+2024-12-25 13:13:13 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 13:13:23 | Question: jak se do školy dostanu -> Answer: Do školy se dostanete tramvajemi, autobusy nebo metrem (linky B a C).
+2024-12-25 13:15:53 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-25 13:16:03 | Question: Jaké jsou nejbližší zastávky mhd? -> Answer: Nejbližší zastávky MHD jsou "Ječná" pro tramvaje a "Štěpánská" pro autobusy. Zastávka "Karlovo náměstí" nabízí tramvaje a metro (linka B) s rychlou dostupností školy.
+2024-12-25 13:16:19 | Question: Dostanu se do školy pomocí metra C? -> Answer: Ano, škola je dostupná linkou metra C. Nearest metro station is I. P. Pavlova.
