@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Your AI assistant",
 };
 
-export default function RootLayout({
+export default function RootLayout({  
   children,
 }: Readonly<{
   children: React.ReactNode;

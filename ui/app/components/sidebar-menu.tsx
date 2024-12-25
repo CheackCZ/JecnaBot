@@ -1,22 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation"; 
+import React, { useState } from "react"; // Import React and the useState hook for managing component state.
+import { useRouter } from "next/navigation"; // Import useRouter for programmatic navigation in Next.js.
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
   SidebarHeader,
-} from "@/app/components/sidebar";
-import { Button } from "@/app/components/button";
+} from "@/app/components/sidebar"; // Import reusable sidebar components.
+import { Button } from "@/app/components/button"; // Import the Button component for styling buttons.
 
 export function SidebarMenu() {
-  const [isOpen, setIsOpen] = useState(true); 
+  // State for controlling the open/close status of the sidebar.
+  const [isOpen, setIsOpen] = useState(true);
+  // Router instance for navigation.
   const router = useRouter(); 
 
+  // Toggles the sidebar open/closed state.
   const toggleSidebar = () => setIsOpen(!isOpen);
 
+  // Handles user logout and redirects to the homepage.
   const handleLogout = () => {
     setTimeout(() => {
         router.push("/"); // Redirect to homepage
@@ -25,17 +29,12 @@ export function SidebarMenu() {
 
   return (
     <div className={`flex ${isOpen ? "w-[14%]" : "w-[4%]"} transition-all`}>
-      <Sidebar
-        className={`bg-[#09090B] text-white h-screen flex flex-col ${
-          isOpen ? "border-e border-[#27272A]" : "border-none"
-        }`}
-      >
+
+      {/* Sidebar */}
+      <Sidebar className={`bg-[#09090B] text-white h-screen flex flex-col ${isOpen ? "border-e border-[#27272A]" : "border-none"}`}>
+
         {/* Sidebar Header */}
-        <SidebarHeader
-          className={`p-4 ${
-            isOpen ? "border-b border-[#27272A]" : "border-none"
-          }`}
-        >
+        <SidebarHeader className={`p-4 ${isOpen ? "border-b border-[#27272A]" : "border-none"}`}>
           {isOpen && <img src="/img/Text-white.png" alt="JečnáBot Logo" />}
         </SidebarHeader>
 
@@ -45,10 +44,7 @@ export function SidebarMenu() {
             <>
               {/* Logout Button */}
               <div className="absolute bottom-0 left-0 w-full p-4">
-                <Button
-                  className="w-full bg-red-500 hover:bg-red-600 text-white"
-                  onClick={handleLogout}
-                >
+                <Button className="w-full bg-red-500 hover:bg-red-600 text-white" onClick={handleLogout}>
                   Logout
                 </Button>
               </div>
@@ -57,21 +53,17 @@ export function SidebarMenu() {
         </SidebarContent>
 
         {/* Sidebar Footer */}
-        <SidebarFooter
-          className={`p-4 flex items-center justify-between ${
-            isOpen ? "border-t border-[#27272A]" : "border-none"
-          }`}
-        >
+        <SidebarFooter className={`p-4 flex items-center justify-between ${isOpen ? "border-t border-[#27272A]" : "border-none"}`}>
           {isOpen && (
+            // Div with user logged in 
             <div>
               <p className="text-sm text-gray-400">Logged in as:</p>
-              <p className="text-sm font-bold">Ondřej Faltin</p>
+              <p className="text-sm font-bold">ondra.faltin@gmail.com</p>
             </div>
           )}
-          <button
-            onClick={toggleSidebar}
-            className="p-2 bg-transparent border-none cursor-pointer focus:outline-none"
-          >
+        
+          {/* Button to toggle the sidebar (open/close it) */}
+          <button onClick={toggleSidebar} className="p-2 bg-transparent border-none cursor-pointer focus:outline-none">
             <img
               src="/img/sidebar.svg"
               alt="Toggle Sidebar"
@@ -79,6 +71,7 @@ export function SidebarMenu() {
             />
           </button>
         </SidebarFooter>
+
       </Sidebar>
     </div>
   );
