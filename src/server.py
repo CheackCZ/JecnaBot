@@ -41,7 +41,7 @@ Vítejte na Ječnábot serveru!
 
  * Dokumentace:  /README.md (https://github.com/CheackCZ/JecnaBot)
  * Podpora:      ondra.faltin@gmail.com (ondrejfaltin.cz)
-Kontaktujte podporu nebo se podívejte dokumentace pro více informací!
+Kontaktujte podporu nebo se podívejte do dokumentace pro více informací!
 
       _       _ _          __ ____        _     
      | |      \_/         /_/|  _ \      | |     ____                           
