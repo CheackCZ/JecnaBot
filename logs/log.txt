@@ -106,3 +106,33 @@
 2024-12-25 13:15:53 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
 2024-12-25 13:16:03 | Question: Jaké jsou nejbližší zastávky mhd? -> Answer: Nejbližší zastávky MHD jsou "Ječná" pro tramvaje a "Štěpánská" pro autobusy. Zastávka "Karlovo náměstí" nabízí tramvaje a metro (linka B) s rychlou dostupností školy.
 2024-12-25 13:16:19 | Question: Dostanu se do školy pomocí metra C? -> Answer: Ano, škola je dostupná linkou metra C. Nearest metro station is I. P. Pavlova.
+2024-12-29 18:50:36 | Question: kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Jan Dvořák, kontakt: dvorak@spsejecna.cz, 731517982. (https://www.spsejecna.cz/kontakt)
+2024-12-30 10:37:34 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 8:00. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 10:37:48 | Question: Nemáš náodou v trénovacíh datech že začíná v 7:30? -> Answer: Omlouvám se za chybu, začátek výuky je zpravidla v 7:30. Děkuji za pochopení.
+2024-12-30 10:37:56 | Question: Kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 10:38:05 | Question: Děkuji! -> Answer: Nemáte zač! Pokud budete mít další otázky, neváhejte se zeptat.
+2024-12-30 13:03:45 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 13:05:48 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 8:00. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 13:05:57 | Question: Kde se škola nachází? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.
+2024-12-30 13:06:10 | Question: Jaké používá škola webovky? -> Answer: Škola používá vlastní webové stránky na adrese www.spsejecna.cz a pro správu studijních údajů systém Bakaláři, dostupný na www.bakalari-spsejecna.cz. (https://www.spsejecna.cz/)
+2024-12-30 13:07:18 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 13:11:34 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 14:07:43 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 14:11:34 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 14:11:47 | Question: Kde se škola nachízí? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.
+2024-12-30 14:12:08 | Question: kdo je ředitel školy a jeho kontakt? -> Answer: Ředitelem školy je Ing. Jiří Míka. Kontakt: míka@spsejecna.cz, 739 970 606. Aktuální informace jsou dostupné na stránce vedení školy. (https://www.spsejecna.cz/kontakt)
+2024-12-30 14:12:28 | Question: Není to náhou Ing. Ondřej Mandík -> Answer: Ing. Ondřej Mandík je veden jako zástupce ředitele pro technické obory na SPŠE Ječná. (https://www.spsejecna.cz/kontakt)
+2024-12-30 14:12:29 | Question: jak se dá do školy dosta pomocí MHD? -> Answer: Do školy jezdí tramvaje (např. linka 9) a autobusy (např. linka 114).
+2024-12-30 14:12:38 | Question: metro? -> Answer: The nearest metro station to SPŠE Ječná is I. P. Pavlova, which is located on Line C. The school is also accessible via the metro station Karlovo náměstí on Line B.
+2024-12-30 14:16:51 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 14:17:19 | Question: Co je na škole za obory? -> Answer: Škola nabízí dva hlavní obory: Informační technologie, se zaměřením na programování a vývoj softwaru, a Elektrotechnika, zaměřenou na Automatizaci a Robotiku. Oba obory připravují studenty na práci v technických oborech nebo pokračování ve studiu na vysokých školách. (https://www.spsejecna.cz/obory)
+2024-12-30 14:19:36 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2024-12-30 14:19:48 | Question: kde se škola nachází? -> Answer: Škola sídlí na adrese Ječná 30, Praha 2.
+2024-12-30 14:20:48 | Question: Jak se dostanu do školy metrem: -> Answer: Do školy se dostanete metrem linky C na stanici I. P. Pavlova, nebo linky B na stanici Karlovo náměstí, odkud je to několik minut pěšky.
+2024-12-30 14:23:53 | Question: kolik je možných spojů? -> Answer: Pro spojení MHD je možné použít tramvaje, autobusy a metro. Například: 
+
+- Tramvaj 22: 2 minuty chůze, 12 minut jízdy, 1 přestup (na metro).
+- Tramvaj 26: 2 minuty chůze, 16 minut jízdy, 1 přestup (na metro).
+- Autobus 176: 6 minut chůze, 10 minut jízdy, 1 přestup (na metro).
+
+Spojení je pohodlné a dobře zorganizované. (https://www.spsejecna.cz/spojeni)

@@ -25,6 +25,7 @@ class Session:
         self.logic = logic
         self.logger = LogManager()
 
+
     async def handle_session(self):
         """
         Manages a WebSocket session with the client.
@@ -46,6 +47,7 @@ class Session:
                 print(f"Chyba: {e}")
                 break
 
+
     async def _welcome_message(self):
         """
         Sends a welcome message and frequently asked questions separately.
@@ -61,6 +63,7 @@ class Session:
 
         print("Sending welcome message:", json.dumps(welcome_message))  # Debug
         await self.websocket.send(json.dumps(welcome_message))
+        
         
     async def _process_message(self, client_message):
         """
@@ -96,9 +99,6 @@ class Session:
             "type": "response",
             "message": answer
         }
-
-        # Debugging: Print the JSON being sent
-        print("Sending response (JSON):", json.dumps(response_message))
 
         await self.websocket.send(json.dumps(response_message))
 
