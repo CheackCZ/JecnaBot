@@ -170,3 +170,6 @@ Spojení je pohodlné a dobře zorganizované. (https://www.spsejecna.cz/spojeni
 2024-12-31 17:18:30 | Question: Zeptal jsem se pod jiným účtem a stále zde píšeš něco jiného. Ředitel je: Vedení školy Ředitel školy Ing. Ondřej Mandík mandik@spsejecna.cz, 731469516 -> Answer: Omlouvám se za chybu. Správné vedení školy včetně ředitele Ing. Ondřeje Mandíka je zde: [Vedení školy](https://www.spsejecna.cz/vedeni). Děkuji za opravu.
 2024-12-31 17:18:45 | Question: Si si jistý? -> Answer: Ano, jsem si jistý. Informace o škole jsou přesné a aktuální.
 2025-01-01 19:01:40 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-01 19:32:00 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-01 19:57:29 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-01 19:57:42 | Question: ahoj -> Answer: Ahoj! Jak mohu pomoci?

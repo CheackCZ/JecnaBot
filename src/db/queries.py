@@ -60,3 +60,18 @@ def save_message(session_id, content, is_question):
         connection.commit()
     finally:
         connection.close()
+
+def get_user_by_username(username):
+    """
+    Fetch a user by username from the database.
+
+    :param username: The username to search for.
+    :return: A dictionary with user details or None if not found.
+    """
+    connection = get_connection()
+    cursor = connection.cursor(dictionary=True)
+    try:
+        cursor.execute("SELECT id, password_hash FROM users WHERE username = %s", (username,))
+        return cursor.fetchone()
+    finally:
+        connection.close()

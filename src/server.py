@@ -10,6 +10,10 @@ from websockets import serve
 from session import Session
 from response_logic import ResponseLogic
 
+from db.utils import verify_password, hash_password
+from db.queries import get_user_by_username, create_user
+import re
+
 class WebSocketServer:
     """
     WebSocket server for handling communication with users.
@@ -72,6 +76,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 
+
 @app.route("/register", methods=["POST"])
 def register():
     """
@@ -80,15 +85,54 @@ def register():
     :returns (Response): JSON response with a success message or an error.
     """
     data = request.json
+    
+    # Debugging - log received data
+    print(data)
+    
     username = data.get("username")
     password = data.get("password")
 
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
 
-    # Add user registration logic here (e.g., save to the database)
-    print(f"Registered user: {username}")  # Debugging
-    return jsonify({"message": "User registered successfully!"}), 201
+    # Validate password strength
+    if not is_valid_password(password):
+        return jsonify({"error": (
+            "Password must have at least 1 number, 1 special character, "
+            "1 uppercase letter, 1 lowercase letter, and be at least 8 characters long."
+        )}), 400
+
+    try:
+        # Hash the password
+        password_hash = hash_password(password)
+        
+        # Create user in the database
+        create_user(username, password_hash)
+
+        print(f"User registered successfully: {username}")  # Debugging
+        return jsonify({"message": "User registered successfully!"}), 201
+
+    except Exception as e:
+        print(f"Error during registration: {e}")
+        return jsonify({"error": "Registration failed. Username might already exist."}), 400
+
+
+def is_valid_password(password):
+    """
+    Validate the password strength.
+
+    :param password: The password to validate.
+    :return: True if the password meets the requirements, False otherwise.
+    """
+    if (
+        len(password) >= 8 and
+        re.search(r"[A-Z]", password) and  # At least one uppercase letter
+        re.search(r"[a-z]", password) and  # At least one lowercase letter
+        re.search(r"[0-9]", password) and  # At least one digit
+        re.search(r"[!@#$%^&*(),.?\":{}|<>]", password)  # At least one special character
+    ):
+        return True
+    return False
 
 
 @app.route("/login", methods=["POST"])
@@ -105,9 +149,16 @@ def login():
     if not username or not password:
         return jsonify({"error": "Username and password are required"}), 400
 
-    # Add user login logic here (e.g., verify credentials)
-    print(f"Login attempt for user: {username}")  # Debugging
-    return jsonify({"message": "Login successful!", "token": "sample-token"}), 200
+    try:
+        user = get_user_by_username(username)
+        if user is None or not verify_password(password, user["password_hash"]):
+            return jsonify({"error": "Invalid username or password"}), 401
+
+        return jsonify({"message": "Login successful!", "user_id": user["id"]}), 200
+
+    except Exception as e:
+        print(f"Error during login: {e}")
+        return jsonify({"error": "An error occurred during login"}), 500
 
 
 def run_flask():
