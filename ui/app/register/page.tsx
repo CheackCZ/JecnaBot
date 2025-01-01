@@ -63,7 +63,7 @@ export default function Register() {
       {/* Right side: Registration form */}
       <div className="w-[50%] h-screen flex flex-col items-center justify-center pe-[10%]">
         {/* Form title */}
-        <h1 className="text-3xl font-semibold text-center mt-6 mb-6">
+        <h1 className="text-3xl text-white font-semibold text-center mt-6 mb-6">
           Create an Account!
         </h1>
 
@@ -72,7 +72,7 @@ export default function Register() {
           {/* Email input field */}
           <div>
             {/* Email label */}
-            <label htmlFor="email" className="block text-sm font-medium mb-1">
+            <label htmlFor="email" className="block text-sm text-gray-100 font-medium mb-1">
               Email
             </label>
             {/* Email input */}
@@ -90,7 +90,7 @@ export default function Register() {
           {/* Password input field */}
           <div>
             {/* Password label */}
-            <label htmlFor="password" className="block text-sm font-medium mb-1">
+            <label htmlFor="password" className="block text-sm text-gray-100 font-medium mb-1">
               Password
             </label>
             {/* Password input */}
@@ -110,7 +110,7 @@ export default function Register() {
             {/* Repeat Password label */}
             <label
               htmlFor="repeat-password"
-              className="block text-sm font-medium mb-1"
+              className="block text-sm text-gray-100 font-medium mb-1"
             >
               Repeat Password
             </label>

@@ -4,6 +4,7 @@ import React, { useState } from "react"; // Import React and useState for state 
 import { useRouter } from "next/navigation"; // Import useRouter for programmatic navigation in Next.js.
 import { Input } from "@/app/components/input"; // Import reusable Input component.
 import { Button } from "@/app/components/button"; // Import reusable Button component.
+import { Alert, AlertDescription, AlertTitle } from "@/app/components/alert"
 
 export default function Login() {
   const router = useRouter(); // Create a router instance for navigation.
@@ -30,15 +31,19 @@ export default function Login() {
 
       if (response.ok) {
         const data = await response.json();
+
         alert("Login successful!");
+        
         localStorage.setItem("token", data.token); // Save the session token
         router.push("/chat");
       } else {
         const errorData = await response.json();
+
         alert(errorData.error || "Login failed.");
       }
     } catch (error) {
       console.error("Error logging in:", error);
+      
       alert("An error occurred. Please try again.");
     }
   };
@@ -54,14 +59,14 @@ export default function Login() {
       {/* Right side: Login form */}
       <div className="w-[50%] h-screen flex flex-col items-center justify-center pe-[10%]">
         {/* Form title */}
-        <h1 className="text-3xl font-semibold text-center mt-6 mb-6">Welcome back!</h1>
+        <h1 className="text-3xl text-white font-semibold text-center mt-6 mb-6">Welcome back!</h1>
 
         {/* Form element */}
         <form onSubmit={handleLogin} className="space-y-4 w-[60%]">
           {/* Email input field */}
           <div>
             {/* Email Label */}
-            <label htmlFor="email" className="block text-sm font-medium mb-1">
+            <label htmlFor="email" className="block text-sm text-gray-100 font-medium mb-1">
               Email
             </label>
 
@@ -80,7 +85,7 @@ export default function Login() {
           {/* Password input field */}
           <div>
             {/* Password Label */}
-            <label htmlFor="password" className="block text-sm font-medium mb-1">
+            <label htmlFor="password" className="block text-sm text-gray-100 font-medium mb-1">
               Password
             </label>
 
