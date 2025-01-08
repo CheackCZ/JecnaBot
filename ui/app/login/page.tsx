@@ -5,12 +5,13 @@ import { useRouter } from "next/navigation"; // Import useRouter for programmati
 import { Input } from "@/app/components/input"; // Import reusable Input component.
 import { Button } from "@/app/components/button"; // Import reusable Button component.
 import { Alert, AlertDescription, AlertTitle } from "@/app/components/alert"
+import { useUserContext } from "@/hooks/UserContext";
+
 
 export default function Login() {
-  const router = useRouter(); // Create a router instance for navigation.
-
-  // States for managing email and password input fields.
-  const [email, setEmail] = useState("");
+  const router = useRouter();
+  const { setEmail } = useUserContext(); // Access setEmail from context
+  const [email, setEmailInput] = useState("");
   const [password, setPassword] = useState("");
 
   // Function to handle login form submission.
@@ -30,39 +31,41 @@ export default function Login() {
       });
 
       if (response.ok) {
+        alert("Login successfull.");
         const data = await response.json();
 
-        alert("Login successful!");
-        
-        localStorage.setItem("token", data.token); // Save the session token
+        document.cookie = `token=${data.token}; path=/; secure; samesite=strict;`;
+
+        setEmail(email); // Set email in context
         router.push("/chat");
       } else {
         const errorData = await response.json();
-
         alert(errorData.error || "Login failed.");
       }
     } catch (error) {
       console.error("Error logging in:", error);
-      
       alert("An error occurred. Please try again.");
     }
   };
 
   return (
     // Main container for the login page.
-    <div className="flex flex-row items-center justify-center min-h-screen bg-[#09090B]">
+    <div className="flex md:flex-row xs:flex-col items-center justify-center min-h-screen bg-[#09090B]">
       {/* Left side: Logo display */}
-      <div className="w-[50%] h-screen flex items-center justify-center ps-[10%] bg-white">
-        <img src="/img/Full-Logo.png" alt="" /> {/* Full logo of the application */}
+      <div className="md:w-[50%] sm:w-[360px] xs:w-[240px] md:h-screen sm:h-[40vh] xs:h-[35vh] flex items-center justify-center md:ps-[10%] md:bg-white">
+        <img src="/img/Full-Logo.png" alt="Full Logo" className="hidden md:block" />
+        <img src="/img/Full-logo-white.png" alt="Full Logo (white)" className="block md:hidden" />
       </div>
 
       {/* Right side: Login form */}
-      <div className="w-[50%] h-screen flex flex-col items-center justify-center pe-[10%]">
+      <div className="md:w-[50%] xs:w-[100%] md:h-screen sm:h-[60vh] xs:h-[65vh] flex flex-col items-center md:justify-center xs:justify-start md:pe-[10%]">
         {/* Form title */}
-        <h1 className="text-3xl text-white font-semibold text-center mt-6 mb-6">Welcome back!</h1>
+        <h1 className="md:text-3xl sm:text-2xl xs:text-xl text-white font-semibold text-center md:mt-6 mb-6 space-y-4 w-[60%]">
+          Welcome Back!
+        </h1>
 
         {/* Form element */}
-        <form onSubmit={handleLogin} className="space-y-4 w-[60%]">
+        <form onSubmit={handleLogin} className="space-y-4 md:w-[60%] xs:w-[60%]">
           {/* Email input field */}
           <div>
             {/* Email Label */}
@@ -77,7 +80,7 @@ export default function Login() {
               placeholder="Enter your email"
               required
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmailInput(e.target.value)}
               className="w-full text-[#09090B] bg-[#09090B] border border-[#27272A] placeholder-[#27272A] hover:border-white focus:border-white focus:ring focus:ring-[#09090B]"
             />
           </div>
@@ -104,15 +107,15 @@ export default function Login() {
           {/* Login button */}
           <Button
             type="submit"
-            className="w-full bg-white text-[#09090B] font-bold"
+            className="w-full bg-blue-500 text-[#09090B] font-bold"
           >
             Login
           </Button>
         </form>
 
         {/* Link to the registration page */}
-        <div className="mt-4 text-center">
-          <p className="text-gray-500">
+        <div className="mt-4 text-center space-y-4 w-[60%]">
+          <p className="text-gray-500 break-words">
             Don't have an account already?{" "}
             <span
               className="text-blue-500 cursor-pointer hover:underline"
@@ -121,6 +124,13 @@ export default function Login() {
               Register
             </span>
           </p>
+
+          {/* Div with link to home */}
+          <div className="mt-2">
+            <a href="/" className="text-gray-500 break-words">
+              Return to <span className="text-blue-500 cursor-pointer hover:underline">Home Page</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

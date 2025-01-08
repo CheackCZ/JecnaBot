@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Input } from "@/app/components/input";
 import { Button } from "@/app/components/button";
 import { SidebarMenu } from "@/app/components/sidebar-menu";
+import { useUserContext } from "@/hooks/UserContext";
 
 // Define the type for messages used in the chat
 type Message = {
@@ -15,10 +16,23 @@ type Message = {
 
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
+
   const [input, setInput] = useState("");
+  
+  const [isWaitingForResponse, setIsWaitingForResponse] = useState(false);
+  
   const [questions, setQuestions] = useState<{ id: number; text: string }[]>([]);
+  
   const websocket = useRef<WebSocket | null>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+
+  const { email } = useUserContext();
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const handleSidebarToggle = (isOpen: boolean) => {
+    setIsSidebarOpen(isOpen);
+  };
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -57,6 +71,8 @@ export default function Chat() {
         }
       } catch (err) {
         console.error("Error parsing WebSocket message:", err);
+      } finally {
+        setIsWaitingForResponse(false); 
       }
     };
 
@@ -98,6 +114,7 @@ export default function Chat() {
     const newMessage: Message = { id: Date.now(), sender: "user", text: input };
     setMessages((prevMessages) => [...prevMessages, newMessage]);
 
+    setIsWaitingForResponse(true);
     websocket.current?.send(input);
 
     setInput("");
@@ -114,23 +131,23 @@ export default function Chat() {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !isWaitingForResponse) {
       e.preventDefault();
       handleSend();
     }
   };
 
   return (
-    <div className="flex h-screen bg-[#09090B]">
-      <SidebarMenu />
+    <div className="flex h-screen w-full bg-[#09090B]">
+      <SidebarMenu onToggle={handleSidebarToggle}/>
 
       <main className="flex-1 flex flex-col">
-        <header className="w-[60%] mx-[20%] flex justify-center p-4 border-b border-[#27272A]">
+        <header className="lg:w-[60%] sm:w-[80%] xs:w-[100%] lg:mx-[20%] sm:mx-[10%] xs:mx-0 flex justify-center p-4 border-b border-[#27272A]">
           <img className="h-[50px]" src="/img/Text-white.png" alt="sidebar" />
         </header>
 
-        <div ref={chatContainerRef} className="flex-1 mx-[20%] w-[60%] p-4 overflow-y-auto bg-[#09090B] custom-scroll">
-          {messages.map((message) => (
+        <div ref={chatContainerRef} className="flex-1 lg:w-[60%] sm:w-[80%] xs:w-[100%] lg:mx-[20%] sm:mx-[10%] xs:mx-0 p-4 overflow-y-auto bg-[#09090B] custom-scroll">
+        {messages.map((message) => (
             <div
             key={message.id}
             className={`flex mb-4 ${message.sender === "user" ? "justify-end" : "justify-start"}`}
@@ -175,7 +192,7 @@ export default function Chat() {
           )}
         </div>
 
-        <div className="p-4 mx-[20%] w-[60%] bg-[#09090B] flex items-center space-x-4">
+        <div className="p-4 lg:w-[60%] sm:w-[80%] xs:w-[90%] lg:mx-[20%] sm:mx-[10%] xs:mx-[5%] bg-[#09090B] flex items-center space-x-4">
           <Input
             type="text"
             placeholder="Type your message..."
@@ -185,10 +202,17 @@ export default function Chat() {
             className="flex-1 bg-black text-white placeholder-gray-500 px-4 py-2 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             style={{ backgroundColor: "#09090B" }}
           />
-          <Button onClick={handleSend} className="bg-blue-500 hover:bg-blue-600 text-white">
+          <Button
+            onClick={handleSend}
+            disabled={isWaitingForResponse}
+            className={`bg-blue-500 hover:bg-blue-600 text-white ${
+              isWaitingForResponse ? "opacity-50 cursor-not-allowed" : ""
+            }`} 
+          >
             Send
           </Button>
         </div>
+
       </main>
     </div>
   );

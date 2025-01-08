@@ -1,18 +1,17 @@
 import asyncio
 import json
+import re
 
 from threading import Thread
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from websockets import serve
 
-# Import your WebSocket server logic here
 from session import Session
 from response_logic import ResponseLogic
 
 from db.utils import verify_password, hash_password
 from db.queries import get_user_by_username, create_user
-import re
 
 class WebSocketServer:
     """
@@ -86,16 +85,14 @@ def register():
     """
     data = request.json
     
-    # Debugging - log received data
     print(data)
     
     username = data.get("username")
     password = data.get("password")
 
     if not username or not password:
-        return jsonify({"error": "Username and password are required"}), 400
+        return jsonify({"error": "Email and password are required"}), 400
 
-    # Validate password strength
     if not is_valid_password(password):
         return jsonify({"error": (
             "Password must have at least 1 number, 1 special character, "
@@ -103,18 +100,16 @@ def register():
         )}), 400
 
     try:
-        # Hash the password
         password_hash = hash_password(password)
         
-        # Create user in the database
         create_user(username, password_hash)
 
-        print(f"User registered successfully: {username}")  # Debugging
+        print(f"User registered successfully: {username}")  
         return jsonify({"message": "User registered successfully!"}), 201
 
     except Exception as e:
         print(f"Error during registration: {e}")
-        return jsonify({"error": "Registration failed. Username might already exist."}), 400
+        return jsonify({"error": "Registration failed. Email is might already taken."}), 400
 
 
 def is_valid_password(password):
@@ -126,10 +121,10 @@ def is_valid_password(password):
     """
     if (
         len(password) >= 8 and
-        re.search(r"[A-Z]", password) and  # At least one uppercase letter
-        re.search(r"[a-z]", password) and  # At least one lowercase letter
-        re.search(r"[0-9]", password) and  # At least one digit
-        re.search(r"[!@#$%^&*(),.?\":{}|<>]", password)  # At least one special character
+        re.search(r"[A-Z]", password) and  
+        re.search(r"[a-z]", password) and  
+        re.search(r"[0-9]", password) and  
+        re.search(r"[!@#$%^&*(),.?\":{}|<>]", password)  
     ):
         return True
     return False

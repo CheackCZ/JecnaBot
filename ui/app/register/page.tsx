@@ -14,6 +14,13 @@ export default function Register() {
   const [repeatPassword, setRepeatPassword] = useState(""); // State for repeat password input.
   const [error, setError] = useState(""); // State to handle error messages.
 
+  // Function to validate password strength (matches backend validation logic).
+  const isValidPassword = (password:string) => {
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
+    return passwordRegex.test(password);
+  };
+
   // Function to handle the registration form submission.
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault(); // Prevent default form submission behavior.
@@ -21,6 +28,14 @@ export default function Register() {
     // Check if passwords match
     if (password !== repeatPassword) {
       setError("Passwords do not match. Please try again."); // Display error if passwords don't match.
+      return;
+    }
+
+    // Check if password is valid
+    if (!isValidPassword(password)) {
+      setError(
+        "Password must have at least 1 number, 1 special character, 1 uppercase letter, 1 lowercase letter, and be at least 8 characters long."
+      );
       return;
     }
 
@@ -44,31 +59,32 @@ export default function Register() {
         router.push("/login"); // Redirect to the login page.
       } else {
         const errorData = await response.json(); // Parse error response from the server.
-        alert(errorData.error || "Registration failed."); // Display error message.
+        setError(errorData.error || "Registration failed."); // Display server-provided error.
       }
     } catch (error) {
       console.error("Error registering user:", error); // Log error for debugging.
-      alert("An error occurred. Please try again."); // Notify user of an error.
+      setError("An error occurred. Please try again."); // Notify user of an error.
     }
   };
 
   return (
     // Main container for the registration page.
-    <div className="flex flex-row items-center justify-center min-h-screen bg-[#09090B]">
+    <div className="flex md:flex-row xs:flex-col items-center justify-center min-h-screen bg-[#09090B]">
       {/* Left side: Logo display */}
-      <div className="w-[50%] h-screen flex items-center justify-center ps-[10%] bg-white">
-        <img src="/img/Full-Logo.png" alt="Full Logo" /> {/* Full logo of the application */}
+      <div className="md:w-[50%] sm:w-[360px] xs:w-[240px] md:h-screen sm:h-[40vh] xs:h-[35vh] flex items-center justify-center md:ps-[10%] md:bg-white">
+        <img src="/img/Full-Logo.png" alt="Full Logo" className="hidden md:block" />
+        <img src="/img/Full-logo-white.png" alt="Full Logo (white)" className="block md:hidden" />
       </div>
 
       {/* Right side: Registration form */}
-      <div className="w-[50%] h-screen flex flex-col items-center justify-center pe-[10%]">
+      <div className="md:w-[50%] xs:w-[100%] md:h-screen sm:h-[60vh] xs:h-[65vh] flex flex-col items-center md:justify-center xs:justify-start md:pe-[10%]">
         {/* Form title */}
-        <h1 className="text-3xl text-white font-semibold text-center mt-6 mb-6">
+        <h1 className="md:text-3xl sm:text-2xl xs:text-xl text-white font-semibold text-center md:mt-6 mb-6 space-y-4 w-[60%]">
           Create an Account!
         </h1>
 
         {/* Form element */}
-        <form onSubmit={handleRegister} className="space-y-4 w-[60%]">
+        <form onSubmit={handleRegister} className="space-y-4 md:w-[60%] xs:w-[60%]">
           {/* Email input field */}
           <div>
             {/* Email label */}
@@ -132,25 +148,35 @@ export default function Register() {
           {/* Registration button */}
           <Button
             type="submit"
-            className="w-full bg-white text-[#09090B] font-bold"
+            className="w-full bg-blue-500 text-[#09090B] font-bold"
           >
             Register
           </Button>
         </form>
 
         {/* Link to the login page */}
-        <div className="mt-4 text-center">
-          <p className="text-gray-500">
+        <div className="mt-4 text-center space-y-4 w-[60%]">
+          <p className="text-gray-500 break-words">
             Already have an account?{" "}
             <span
               className="text-blue-500 cursor-pointer hover:underline"
-              onClick={() => router.push("/login")} // Navigate to login page on click.
+              onClick={() => router.push("/login")}
             >
               Login
             </span>
           </p>
+
+          {/* Div with link to home */}
+          <div className="mt-2">
+            <a href="/" className="text-gray-500 break-words">
+              Return to <span className="text-blue-500 cursor-pointer hover:underline">Home Page</span>
+            </a>
+          </div>
+
         </div>
+
       </div>
+
     </div>
   );
 }

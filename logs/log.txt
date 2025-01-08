@@ -173,3 +173,20 @@ Spojení je pohodlné a dobře zorganizované. (https://www.spsejecna.cz/spojeni
 2025-01-01 19:32:00 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
 2025-01-01 19:57:29 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
 2025-01-01 19:57:42 | Question: ahoj -> Answer: Ahoj! Jak mohu pomoci?
+2025-01-01 20:13:21 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-05 20:57:21 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-07 21:20:15 | Question: kdy začíná výuka? -> Answer: Výuka většinou začíná od 8:00. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-07 21:20:29 | Question: Nezačíná náhodou v 7:30? -> Answer: Ano, někteří studenti mají výuku začínající v 7:30.
+2025-01-07 21:20:30 | Question: asd -> Answer: I'm here to help with information about SPŠE Ječná. If you have any questions, feel free to ask!
+2025-01-07 21:24:31 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 8:00. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-07 21:24:34 | Question: uij -> Answer: It seems your message is unclear. Could you please provide more details or clarify your question?
+2025-01-07 21:24:36 | Question: asdasdasd -> Answer: It seems that your message does not contain a clear question. How can I assist you regarding SPŠE Ječná?
+2025-01-07 21:24:43 | Question: asdasdasd -> Answer: I'm here to provide information about SPŠE Ječná. Please ask a relevant question!
+2025-01-07 21:24:49 | Question: Co tím myslíš? -> Answer: Omlouvám se za zmatení, neodkazovala jsem na žádnou konkrétní věc. Můžu pomoci s informacemi o SPŠE Ječná?
+2025-01-07 21:25:41 | Question: kolik je možných spojů? -> Answer: Škola je výborně dostupná z celé Prahy, proto nevytěžuje žádnou další linku. Ve špičkách jezdí tramvaje a autobusy ve frekvenci 2–3 minuty. (https://www.spsejecna.cz/doprava)
+2025-01-07 21:25:45 | Question: odkud taky? -> Answer: Studenti pocházejí z různých částí Prahy a jejího blízkého okolí, například z výše zmíněných městských částí Karlín, Vysočany nebo z měst jako Černošice a Jesenice. (https://www.spsejecna.cz/kontakt)
+2025-01-07 21:25:47 | Question: kde s eškola nachází? -> Answer: Škola sídlí na adrese Ječná 30, Praha 2.
+2025-01-07 21:53:21 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-08 18:58:17 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-08 19:31:43 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-08 19:35:16 | Question: asdasd -> Answer: I'm here to provide information about SPŠE Ječná. Please let me know what you would like to know!

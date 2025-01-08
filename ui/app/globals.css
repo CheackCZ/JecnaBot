@@ -97,3 +97,14 @@ body {
     @apply bg-background text-foreground;
   }
 }
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.truncate {
+  white-space: nowrap;
+}
