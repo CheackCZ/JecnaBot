@@ -190,3 +190,7 @@ Spojení je pohodlné a dobře zorganizované. (https://www.spsejecna.cz/spojeni
 2025-01-08 18:58:17 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
 2025-01-08 19:31:43 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
 2025-01-08 19:35:16 | Question: asdasd -> Answer: I'm here to provide information about SPŠE Ječná. Please let me know what you would like to know!
+2025-01-10 23:09:43 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.
+2025-01-10 23:09:52 | Question: Kde se škola nachází? -> Answer: Škola se nachází na adrese Ječná 30, Praha 2.
+2025-01-10 23:10:13 | Question: kdo je ředitel? -> Answer: Ředitelem školy je Ing. Jan Tůma.
+2025-01-10 23:12:58 | Question: kdy začíná výuka? -> Answer: Výuka začíná většinou od 7:30. Dříve než jinde, aby měli studenti odpoledně více času.

@@ -20,11 +20,3 @@ def verify_password(password, hashed_password):
     :returns (bool): True if the password matches the hashed password, False otherwise.
     """
     return bcrypt.checkpw(password.encode(), hashed_password.encode())
-
-def generate_uuid():
-    """
-    Generates a unique identifier (UUID).
-
-    :returns (str): A UUID string in the standard format (e.g., '123e4567-e89b-12d3-a456-426614174000').
-    """
-    return str(uuid.uuid4())

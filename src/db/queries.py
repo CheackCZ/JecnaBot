@@ -21,46 +21,6 @@ def create_user(username, password_hash):
         connection.close()
 
 
-def create_session(user_id, session_name):
-    """
-    Inserts session into the database.
-    
-    :param user_id (int): user's id.
-    :param session_name (str): name of the session.
-    """
-    connection = get_connection()
-    cursor = connection.cursor()
-    
-    try:
-        cursor.execute(
-            "INSERT INTO sessions (id, user_id, session_name) VALUES (UUID(), %s, %s)",
-            (user_id, session_name),
-        )
-        connection.commit()
-    finally:
-        connection.close()
-
-
-def save_message(session_id, content, is_question):
-    """
-    Saves the message into the database.
-
-    :param session_id (int): message id.
-    :param content (str): content of the message.  
-    :param is_question (bool): True/False if message is a question.
-    """
-    connection = get_connection()
-    cursor = connection.cursor()
-
-    try:
-        cursor.execute(
-            "INSERT INTO messages (session_id, content, is_question) VALUES (%s, %s, %s)",
-            (session_id, content, is_question),
-        )
-        connection.commit()
-    finally:
-        connection.close()
-
 def get_user_by_username(username):
     """
     Fetch a user by username from the database.

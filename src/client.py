@@ -33,8 +33,10 @@ class Client:
         try:
             with open(config_file, 'r', encoding='utf-8') as f:
                 return json.load(f)
+            
         except FileNotFoundError:
             raise FileNotFoundError(f"Konfigurační soubor '{config_file}' nebyl nalezen.")
+        
         except json.JSONDecodeError:
             raise ValueError(f"Konfigurační soubor '{config_file}' není validní JSON.")
 

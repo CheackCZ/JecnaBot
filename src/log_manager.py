@@ -86,8 +86,10 @@ class LogManager:
         try:
             with open(self.stats_file, "r", encoding="UTF-8") as file:
                 return [line.strip() for line in file]
+            
         except FileNotFoundError:
             return ["Statistiky nejsou dostupné."]
+        
         except Exception as e:
             return [f"Chyba při načítání statistik: {e}"]
 
